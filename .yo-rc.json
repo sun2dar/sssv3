@@ -1,0 +1,32 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.sssv3"
+    },
+    "jhipsterVersion": "5.6.1",
+    "applicationType": "monolith",
+    "baseName": "ssv3",
+    "packageName": "com.sssv3",
+    "packageFolder": "com/sssv3",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "Y2VlZDExZWJkZTYzMTlhYjIwNjI5MzFlODZmMDc0MTRmMjA3ZTQ0NWU5NzgyYTA2Zjc4NTdmYzcwZjJjMDRkODhhMjA0OGNhODQ3MmIyNDg2ZDA0ZWYwZDc4MjY0ZWI1NGNlOThhMTMwYWI2MjIyYmEyOTA4N2YzZmIwM2E3ZjI=",
+    "clientFramework": "react",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": false
+  }
+}

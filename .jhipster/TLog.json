@@ -1,0 +1,53 @@
+{
+    "name": "TLog",
+    "fields": [
+        {
+            "fieldName": "panjang",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "qty",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "volume",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hargaBeli",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hargaTotal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "inout",
+            "fieldType": "InOut",
+            "fieldValues": "IN,OUT"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "mlogcat",
+            "otherEntityName": "mLogCategory",
+            "otherEntityField": "nama"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "transaksi",
+            "otherEntityName": "transaksi",
+            "otherEntityField": "invoiceno"
+        }
+    ],
+    "changelogDate": "20190117080943",
+    "entityTableName": "t_log",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

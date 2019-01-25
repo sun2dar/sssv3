@@ -1,0 +1,85 @@
+{
+    "name": "MVeneerCategory",
+    "fields": [
+        {
+            "fieldName": "nama",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "deskripsi",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "tebal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "panjang",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lebar",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hargaBeli",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hargaJual",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "VeneerType",
+            "fieldValues": "BASAH,KERING,REPAIR"
+        },
+        {
+            "fieldName": "subtype",
+            "fieldType": "VeneerSubType",
+            "fieldValues": "FB,LC,SC"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Status",
+            "fieldValues": "ACT,DIS,DEL"
+        },
+        {
+            "fieldName": "createdOn",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mveneer",
+            "otherEntityName": "mVeneer",
+            "otherEntityRelationshipName": "veneercategory"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tveneer",
+            "otherEntityName": "tVeneer",
+            "otherEntityRelationshipName": "veneercategory"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "createdby",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        }
+    ],
+    "changelogDate": "20190117080944",
+    "entityTableName": "m_veneer_category",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

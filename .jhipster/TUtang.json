@@ -1,0 +1,35 @@
+{
+    "name": "TUtang",
+    "fields": [
+        {
+            "fieldName": "nominal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "deskripsi",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "createdOn",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "mutang",
+            "otherEntityName": "mUtang",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190117081001",
+    "entityTableName": "t_utang",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

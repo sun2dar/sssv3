@@ -1,0 +1,51 @@
+{
+    "name": "MCustomer",
+    "fields": [
+        {
+            "fieldName": "nama",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telepon",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "mobilephone",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "alamat",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Status",
+            "fieldValues": "ACT,DIS,DEL"
+        },
+        {
+            "fieldName": "createdOn",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "transaksi",
+            "otherEntityName": "transaksi",
+            "otherEntityRelationshipName": "customer"
+        }
+    ],
+    "changelogDate": "20190117080938",
+    "entityTableName": "m_customer",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

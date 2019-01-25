@@ -51,6 +51,10 @@ Navbar styles
   .dropdown-item.active:hover {
     background-color: #353d47;
   }
+  .dropdown-menu {
+    max-height: 600px;
+    overflow-y: auto;
+  }
   .dropdown-toggle::after {
     margin-left: 0.15em;
   }

@@ -1,0 +1,410 @@
+//Master Data
+entity MSupplier {
+	nama String required,
+    telepon Long,
+    mobilephone Long,
+    alamat TextBlob,
+    status Status,
+    createdOn LocalDate
+}
+
+entity MTeam {
+	nama String required,
+    jumlah Integer,
+    deskripsi TextBlob,
+    status Status,
+    createdOn LocalDate
+}
+
+entity MShift {
+	nama String required,
+    deskripsi TextBlob,
+    status Status,
+    createdOn LocalDate
+}
+
+entity MEkspedisi {
+	nama String required,
+    telepon Long,
+    mobilephone Long,
+    alamat TextBlob,
+    status Status,
+    createdOn LocalDate
+}
+
+entity MCustomer {
+	nama String required,
+    telepon Long,
+    mobilephone Long,
+    alamat TextBlob,
+    status Status,
+    createdOn LocalDate
+}
+
+entity MPaytype {
+	nama String required,
+    deskripsi TextBlob,
+    status Status,
+    createdOn LocalDate
+}
+
+//LOG
+entity MLogType {
+	nama String required,
+    deskripsi TextBlob,
+    status Status,
+    createdOn LocalDate
+}
+
+entity MLogCategory {
+	nama String required,
+    diameter1 Double required,
+    diameter2 Double required,
+    hargaBeli Double required,
+    hargaJual Double,
+    status Status,
+    createdOn LocalDate
+}
+
+//Stock inquiry LOG
+entity MLog {
+	nama String required,
+	diameter Double required,
+    panjang Double required,
+    hargaBeli Double,
+    qty Double,
+    status Status,
+    createdOn LocalDate
+}
+
+entity TLog {
+    panjang Double,
+    qty Double,
+    volume Double,
+    hargaBeli Double,
+    hargaTotal Double,
+    inout InOut
+}
+
+//Veneer
+enum VeneerType {
+	BASAH, KERING, REPAIR
+}
+
+enum VeneerSubType {
+	FB, LC, SC
+}
+
+entity MVeneerCategory {
+	nama String required,
+    deskripsi TextBlob,
+    tebal Double,
+    panjang Double,
+    lebar Double,
+    hargaBeli Double,
+    hargaJual Double,
+    type VeneerType,
+	subtype VeneerSubType,
+    status Status,
+    createdOn LocalDate
+}
+
+//Stock inquiry VENEER
+entity MVeneer {
+	//nama String required,
+    //deskripsi TextBlob,
+    hargaBeli Double,
+    qty Double,
+    qtyProduksi Double,
+    status Status,
+    createdOn LocalDate
+}
+
+entity TVeneer {
+    qty Double,
+    volume Double,
+    hargaBeli Double,
+    hargaTotal Double, 
+    inout InOut
+}
+
+//Plywood
+entity MPlywoodGrade {
+	nama String required,
+    deskripsi TextBlob,
+    status Status,
+    createdOn LocalDate
+}
+
+entity MPlywoodCategory {
+	nama String required,
+    deskripsi TextBlob,
+    tebal Double,
+    panjang Double,
+    lebar Double,
+    hargaBeli Double,
+    hargaJual Double,
+    status Status,
+    createdOn LocalDate
+}
+
+//Stock inquiry PLYWOOD
+entity MPlywood {
+	//nama String required,
+    //deskripsi TextBlob,
+    hargaBeli Double,
+    qty Double,
+    qtyProduksi Double,
+    status Status,
+    createdOn LocalDate
+}
+
+entity TPlywood {
+    qty Double,
+    volume Double,
+    hargaBeli Double,
+    hargaTotal Double, 
+    inout InOut
+}
+
+//Material
+entity MSatuan {
+	nama String required,
+    deskripsi String,
+    status Status,
+    createdOn LocalDate
+}
+
+entity MMaterialType {
+	nama String required,
+    deskripsi TextBlob,
+    status Status,
+    createdOn LocalDate
+}
+
+entity MMaterial {
+	nama String required,
+    deskripsi TextBlob,
+    harga Double required,
+    qty Double required,
+    status Status,
+    createdOn LocalDate
+}
+
+entity TMaterial {
+	qty Double,
+    hargaBeli Double, 
+    hargaTotal Double
+    inout InOut
+}
+
+//KASS
+enum KasType {
+	MASUK, DELIVERY,
+    BELILOG, JUALLOG, 
+    BELIVENEER, JUALVENEER,
+    BELIPLAYWOOD, JUALPLAYWOOD,
+    OPERASIONAL, GAJI,
+    HUTANGPIUTANG, BONGKAR
+}
+
+entity MKas {
+	nominal Double
+}
+
+entity TKas {
+	tipekas KasType,
+    nominal Double,
+    deskripsi TextBlob,
+    objectid Long,  //Berdasarkan tipekas - misalnya BELILOG maka Transaksi TLog_ID
+}
+
+//Rate bongkar per m3 / rate Gaji per jam
+//RATE_BONGKAR, RATE_GAJI1, RATE_GAJI2
+entity MConstant {
+	nama String required, 
+    deskripsi TextBlob,
+    nominal Double required
+}
+
+//Operasional
+entity MOperasionalType {
+	nama String required,
+    deskripsi TextBlob,
+    status Status,
+    createdOn LocalDate
+}
+
+entity TOperasional {
+	tanggal LocalDate,
+    nominal Double,
+    createdOn LocalDate
+}
+
+//Hutang piutang
+enum TIPEUTANG {
+	HUTANG, PIUTANG
+}
+
+entity MUtang {
+	nominal Double,
+    sisa Double,
+    duedate LocalDate,
+    tipe TIPEUTANG,
+    status Status
+}
+
+entity TUtang {
+	nominal Double,
+    deskripsi TextBlob,
+	createdOn LocalDate
+}
+
+//Transaksi
+enum TransaksiType {
+	PEMBELIAN, 
+    PENJUALAN, 
+    PRODUKSI,
+    STOCKOPNAME,
+    REFUND
+}
+
+//enum Transaksi Category
+enum TransaksiCategory {
+	LOG, 
+	VENEER,
+	PLYWOOD,
+	MATERIAL
+}
+
+entity Transaksi {
+	tipe TransaksiType,
+	category TransaksiCategory,
+	tanggal LocalDate required,
+    invoiceno String,
+    invoicefile ImageBlob,
+    nopol String,
+    status Status,
+    createdOn LocalDate
+}
+
+entity TBongkar {
+	rateUpah Double,
+    volume Double
+}
+
+//Message - Notification
+entity MMessage {
+	message String,
+    status Status,
+    createdOn LocalDate,
+    modifiedOn LocalDate
+}
+
+//Pajak
+entity MPajak {
+	nama String required,
+	deskripsi TextBlob,
+	nominal Double,
+	status Status,
+	createdOn LocalDate
+}
+
+//In untuk bahan baku produksi, Out untuk hasil produksi
+enum InOut {
+	IN, OUT
+}
+
+enum Status {
+    ACT, //Active
+    DIS, //Disable
+    DEL  //Delete
+}
+
+
+relationship OneToMany {
+    //Log foreign key
+	MLogType{mlog} to MLogCategory{mlogtype(nama)},
+    MLogCategory{mlog} to MLog{mlogcat(nama)},
+    MLogCategory{tlog} to TLog{mlogcat(nama)},
+    Transaksi{tlog} to TLog{transaksi(invoiceno)},
+    ////MLog{tlog} to TLog{mlog(nama)},
+    ////MSatuan{mlog} to MLog{satuan(nama)},
+    
+    //Veneer Foreign key
+    ////MSatuan{vennerkering} to MVeneerKering{satuan(nama)},
+    MVeneerCategory{mveneer} to MVeneer{veneercategory(nama)},
+    MVeneerCategory{tveneer} to TVeneer{veneercategory(nama)},
+    Transaksi{tveneer} to TVeneer{transaksi(invoiceno)},
+    
+    //Plywood Foreign key
+    MPlywoodGrade{plywoodcategory} to MPlywoodCategory{plywoodgrade(nama)},
+    MPlywoodCategory{mplywood} to MPlywood{plywoodcategory(nama)},
+    MPlywoodCategory{tplywood} to TPlywood{plywoodcategory(nama)},
+    Transaksi{tplywood} to TPlywood{transaksi(invoiceno)},
+    ////MPlywood{tplywood} to TPlywood{mplywood(nama)},
+    ////MSatuan{plywood} to MPlywood{satuan(nama)},
+    
+    //Material Foreign key
+    MSatuan{material} to MMaterial{satuan(nama)},
+    MMaterialType{material} to MMaterial{materialtype(nama)},
+    MMaterial{tmaterial} to TMaterial{mmaterial(nama)},
+    Transaksi{tmaterial} to TMaterial{transaksi(invoiceno)},
+    
+    //Transaksi foreign key
+    MShift{transaksi} to Transaksi{shift(nama)},
+    MSupplier{transaksi} to Transaksi{supplier(nama)},
+    MCustomer{transaksi} to Transaksi{customer(nama)},
+    MPaytype{transaksi} to Transaksi{paytype(nama)},
+    MEkspedisi{transaksi} to Transaksi{ekpedisi(nama)},
+    MTeam{transaksi} to Transaksi{team(nama)},
+    Transaksi{tbongkar} to TBongkar{transaksi},
+	MPajak{transaksi} to Transaksi{pajak(nama)},
+    ////MTipeTransaksi{transaksi} to Transaksi{tipetransksi(nama)},
+    
+    //Operasional foreign key
+    MOperasionalType{toperasional} to TOperasional{moperasionaltype(nama)},
+    
+    //Hutang piutang foreign key
+    Transaksi{mutang} to MUtang{transaksi(invoiceno)},
+    MUtang{tutang} to TUtang{mutang}
+}
+
+relationship ManyToOne {
+	MLogType{createdby(login)} to User,
+    MLogCategory{createdby(login)} to User,
+	MLog{createdby(login)} to User,
+    MSupplier{createdby(login)} to User,
+    MMaterialType{createdby(login)} to User,
+    MMaterial{createdby(login)} to User,
+    MTeam{createdby(login)} to User,
+    MVeneerCategory{createdby(login)} to User,
+    MVeneer{createdby(login)} to User,
+    MPlywoodGrade{createdby(login)} to User,
+    MPlywoodCategory{createdby(login)} to User,
+    MPlywood{createdby(login)} to User,
+    MEkspedisi{createdby(login)} to User,
+    Transaksi{createdby(login)} to User,
+    MOperasionalType{createdby(login)} to User,
+    TOperasional{createdby(login)} to User,
+    MMessage{createdby(login)} to User,
+    MMessage{modifiedby(login)} to User
+}
+
+//relationship OneToOne {
+	//MDetailRole{authority(name)} to Authority
+//}
+
+// Set pagination options
+//paginate all with infinite-scroll
+//search * with elasticsearch
+paginate all with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

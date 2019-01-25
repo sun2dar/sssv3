@@ -1,0 +1,19 @@
+{
+    "name": "MKas",
+    "fields": [
+        {
+            "fieldName": "nominal",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190117080955",
+    "entityTableName": "m_kas",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

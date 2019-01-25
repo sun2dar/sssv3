@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity MLogCategory.
+    -->
+    <changeSet id="20190117080941-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="createdby_id"
+                                 baseTableName="m_log_category"
+                                 constraintName="fk_mlog_category_createdby_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="mlogtype_id"
+                                 baseTableName="m_log_category"
+                                 constraintName="fk_mlog_category_mlogtype_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m_log_type"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,139 @@
+{
+    "name": "Transaksi",
+    "fields": [
+        {
+            "fieldName": "tipe",
+            "fieldType": "TransaksiType",
+            "fieldValues": "PEMBELIAN,PENJUALAN,PRODUKSI,STOCKOPNAME,REFUND"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "TransaksiCategory",
+            "fieldValues": "LOG,VENEER,PLYWOOD,MATERIAL"
+        },
+        {
+            "fieldName": "tanggal",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "invoiceno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "invoicefile",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "nopol",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Status",
+            "fieldValues": "ACT,DIS,DEL"
+        },
+        {
+            "fieldName": "createdOn",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tlog",
+            "otherEntityName": "tLog",
+            "otherEntityRelationshipName": "transaksi"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tveneer",
+            "otherEntityName": "tVeneer",
+            "otherEntityRelationshipName": "transaksi"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tplywood",
+            "otherEntityName": "tPlywood",
+            "otherEntityRelationshipName": "transaksi"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tmaterial",
+            "otherEntityName": "tMaterial",
+            "otherEntityRelationshipName": "transaksi"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tbongkar",
+            "otherEntityName": "tBongkar",
+            "otherEntityRelationshipName": "transaksi"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mutang",
+            "otherEntityName": "mUtang",
+            "otherEntityRelationshipName": "transaksi"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "createdby",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "shift",
+            "otherEntityName": "mShift",
+            "otherEntityField": "nama"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "supplier",
+            "otherEntityName": "mSupplier",
+            "otherEntityField": "nama"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "customer",
+            "otherEntityName": "mCustomer",
+            "otherEntityField": "nama"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "paytype",
+            "otherEntityName": "mPaytype",
+            "otherEntityField": "nama"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ekpedisi",
+            "otherEntityName": "mEkspedisi",
+            "otherEntityField": "nama"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "team",
+            "otherEntityName": "mTeam",
+            "otherEntityField": "nama"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "pajak",
+            "otherEntityName": "mPajak",
+            "otherEntityField": "nama"
+        }
+    ],
+    "changelogDate": "20190117081002",
+    "entityTableName": "transaksi",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

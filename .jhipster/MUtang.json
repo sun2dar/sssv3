@@ -1,0 +1,50 @@
+{
+    "name": "MUtang",
+    "fields": [
+        {
+            "fieldName": "nominal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "sisa",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "duedate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "tipe",
+            "fieldType": "TIPEUTANG",
+            "fieldValues": "HUTANG,PIUTANG"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Status",
+            "fieldValues": "ACT,DIS,DEL"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tutang",
+            "otherEntityName": "tUtang",
+            "otherEntityRelationshipName": "mutang"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "transaksi",
+            "otherEntityName": "transaksi",
+            "otherEntityField": "invoiceno"
+        }
+    ],
+    "changelogDate": "20190117081000",
+    "entityTableName": "m_utang",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

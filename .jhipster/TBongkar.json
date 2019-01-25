@@ -1,0 +1,30 @@
+{
+    "name": "TBongkar",
+    "fields": [
+        {
+            "fieldName": "rateUpah",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "volume",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "transaksi",
+            "otherEntityName": "transaksi",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190117081003",
+    "entityTableName": "t_bongkar",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

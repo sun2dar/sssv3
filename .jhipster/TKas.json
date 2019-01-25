@@ -1,0 +1,33 @@
+{
+    "name": "TKas",
+    "fields": [
+        {
+            "fieldName": "tipekas",
+            "fieldType": "KasType",
+            "fieldValues": "MASUK,DELIVERY,BELILOG,JUALLOG,BELIVENEER,JUALVENEER,BELIPLAYWOOD,JUALPLAYWOOD,OPERASIONAL,GAJI,HUTANGPIUTANG,BONGKAR"
+        },
+        {
+            "fieldName": "nominal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "deskripsi",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "objectid",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190117080956",
+    "entityTableName": "t_kas",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,45 @@
+{
+    "name": "TMaterial",
+    "fields": [
+        {
+            "fieldName": "qty",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hargaBeli",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hargaTotal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "inout",
+            "fieldType": "InOut",
+            "fieldValues": "IN,OUT"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "mmaterial",
+            "otherEntityName": "mMaterial",
+            "otherEntityField": "nama"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "transaksi",
+            "otherEntityName": "transaksi",
+            "otherEntityField": "invoiceno"
+        }
+    ],
+    "changelogDate": "20190117080954",
+    "entityTableName": "t_material",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

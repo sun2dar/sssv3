@@ -5,6 +5,62 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080934_added_entity_MSupplier.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080935_added_entity_MTeam.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080936_added_entity_MShift.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080937_added_entity_MEkspedisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080938_added_entity_MCustomer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080939_added_entity_MPaytype.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080940_added_entity_MLogType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080941_added_entity_MLogCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080942_added_entity_MLog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080943_added_entity_TLog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080944_added_entity_MVeneerCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080945_added_entity_MVeneer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080946_added_entity_TVeneer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080947_added_entity_MPlywoodGrade.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080948_added_entity_MPlywoodCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080949_added_entity_MPlywood.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080950_added_entity_TPlywood.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080951_added_entity_MSatuan.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080952_added_entity_MMaterialType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080953_added_entity_MMaterial.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080954_added_entity_TMaterial.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080955_added_entity_MKas.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080956_added_entity_TKas.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080957_added_entity_MConstant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080958_added_entity_MOperasionalType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080959_added_entity_TOperasional.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117081000_added_entity_MUtang.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117081001_added_entity_TUtang.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117081002_added_entity_Transaksi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117081003_added_entity_TBongkar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117081004_added_entity_MMessage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117081005_added_entity_MPajak.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190117080934_added_entity_constraints_MSupplier.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080935_added_entity_constraints_MTeam.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080937_added_entity_constraints_MEkspedisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080940_added_entity_constraints_MLogType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080941_added_entity_constraints_MLogCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080942_added_entity_constraints_MLog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080943_added_entity_constraints_TLog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080944_added_entity_constraints_MVeneerCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080945_added_entity_constraints_MVeneer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080946_added_entity_constraints_TVeneer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080947_added_entity_constraints_MPlywoodGrade.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080948_added_entity_constraints_MPlywoodCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080949_added_entity_constraints_MPlywood.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080950_added_entity_constraints_TPlywood.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080952_added_entity_constraints_MMaterialType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080953_added_entity_constraints_MMaterial.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080954_added_entity_constraints_TMaterial.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080958_added_entity_constraints_MOperasionalType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117080959_added_entity_constraints_TOperasional.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117081000_added_entity_constraints_MUtang.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117081001_added_entity_constraints_TUtang.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117081002_added_entity_constraints_Transaksi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117081003_added_entity_constraints_TBongkar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190117081004_added_entity_constraints_MMessage.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

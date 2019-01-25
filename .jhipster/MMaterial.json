@@ -1,0 +1,75 @@
+{
+    "name": "MMaterial",
+    "fields": [
+        {
+            "fieldName": "nama",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "deskripsi",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "harga",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "qty",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Status",
+            "fieldValues": "ACT,DIS,DEL"
+        },
+        {
+            "fieldName": "createdOn",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tmaterial",
+            "otherEntityName": "tMaterial",
+            "otherEntityRelationshipName": "mmaterial"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "createdby",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "satuan",
+            "otherEntityName": "mSatuan",
+            "otherEntityField": "nama"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "materialtype",
+            "otherEntityName": "mMaterialType",
+            "otherEntityField": "nama"
+        }
+    ],
+    "changelogDate": "20190117080953",
+    "entityTableName": "m_material",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

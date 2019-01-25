@@ -44,8 +44,8 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://localhost:3306/ssv3?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false
-        username: root
-        password:
+        username: sss
+        password: P@ssw0rd
         hikari:
             auto-commit: false
             data-source-properties:
@@ -89,7 +89,7 @@ spring:
                 enabled: true
 
 server:
-    port: 8080
+    port: 90
 
 # ===================================================================
 # JHipster specific properties

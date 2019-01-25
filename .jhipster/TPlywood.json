@@ -1,0 +1,49 @@
+{
+    "name": "TPlywood",
+    "fields": [
+        {
+            "fieldName": "qty",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "volume",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hargaBeli",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hargaTotal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "inout",
+            "fieldType": "InOut",
+            "fieldValues": "IN,OUT"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "plywoodcategory",
+            "otherEntityName": "mPlywoodCategory",
+            "otherEntityField": "nama"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "transaksi",
+            "otherEntityName": "transaksi",
+            "otherEntityField": "invoiceno"
+        }
+    ],
+    "changelogDate": "20190117080950",
+    "entityTableName": "t_plywood",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

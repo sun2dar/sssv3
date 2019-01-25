@@ -1,0 +1,40 @@
+{
+    "name": "TOperasional",
+    "fields": [
+        {
+            "fieldName": "tanggal",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "nominal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "createdOn",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "createdby",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "moperasionaltype",
+            "otherEntityName": "mOperasionalType",
+            "otherEntityField": "nama"
+        }
+    ],
+    "changelogDate": "20190117080959",
+    "entityTableName": "t_operasional",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

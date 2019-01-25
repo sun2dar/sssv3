@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity TLog.
+    -->
+    <changeSet id="20190117080943-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="mlogcat_id"
+                                 baseTableName="t_log"
+                                 constraintName="fk_tlog_mlogcat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m_log_category"/>
+
+        <addForeignKeyConstraint baseColumnNames="transaksi_id"
+                                 baseTableName="t_log"
+                                 constraintName="fk_tlog_transaksi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="transaksi"/>
+
+    </changeSet>
+</databaseChangeLog>

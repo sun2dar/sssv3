@@ -1,0 +1,81 @@
+{
+    "name": "MPlywoodCategory",
+    "fields": [
+        {
+            "fieldName": "nama",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "deskripsi",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "tebal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "panjang",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lebar",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hargaBeli",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hargaJual",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Status",
+            "fieldValues": "ACT,DIS,DEL"
+        },
+        {
+            "fieldName": "createdOn",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mplywood",
+            "otherEntityName": "mPlywood",
+            "otherEntityRelationshipName": "plywoodcategory"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tplywood",
+            "otherEntityName": "tPlywood",
+            "otherEntityRelationshipName": "plywoodcategory"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "createdby",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "plywoodgrade",
+            "otherEntityName": "mPlywoodGrade",
+            "otherEntityField": "nama"
+        }
+    ],
+    "changelogDate": "20190117080948",
+    "entityTableName": "m_plywood_category",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

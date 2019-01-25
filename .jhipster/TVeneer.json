@@ -1,0 +1,49 @@
+{
+    "name": "TVeneer",
+    "fields": [
+        {
+            "fieldName": "qty",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "volume",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hargaBeli",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hargaTotal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "inout",
+            "fieldType": "InOut",
+            "fieldValues": "IN,OUT"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "veneercategory",
+            "otherEntityName": "mVeneerCategory",
+            "otherEntityField": "nama"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "transaksi",
+            "otherEntityName": "transaksi",
+            "otherEntityField": "invoiceno"
+        }
+    ],
+    "changelogDate": "20190117080946",
+    "entityTableName": "t_veneer",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

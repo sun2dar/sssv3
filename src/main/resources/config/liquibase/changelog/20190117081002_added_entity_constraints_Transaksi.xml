@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Transaksi.
+    -->
+    <changeSet id="20190117081002-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="createdby_id"
+                                 baseTableName="transaksi"
+                                 constraintName="fk_transaksi_createdby_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="shift_id"
+                                 baseTableName="transaksi"
+                                 constraintName="fk_transaksi_shift_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m_shift"/>
+
+        <addForeignKeyConstraint baseColumnNames="supplier_id"
+                                 baseTableName="transaksi"
+                                 constraintName="fk_transaksi_supplier_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m_supplier"/>
+
+        <addForeignKeyConstraint baseColumnNames="customer_id"
+                                 baseTableName="transaksi"
+                                 constraintName="fk_transaksi_customer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m_customer"/>
+
+        <addForeignKeyConstraint baseColumnNames="paytype_id"
+                                 baseTableName="transaksi"
+                                 constraintName="fk_transaksi_paytype_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m_paytype"/>
+
+        <addForeignKeyConstraint baseColumnNames="ekpedisi_id"
+                                 baseTableName="transaksi"
+                                 constraintName="fk_transaksi_ekpedisi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m_ekspedisi"/>
+
+        <addForeignKeyConstraint baseColumnNames="team_id"
+                                 baseTableName="transaksi"
+                                 constraintName="fk_transaksi_team_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m_team"/>
+
+        <addForeignKeyConstraint baseColumnNames="pajak_id"
+                                 baseTableName="transaksi"
+                                 constraintName="fk_transaksi_pajak_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m_pajak"/>
+
+    </changeSet>
+</databaseChangeLog>

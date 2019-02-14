@@ -97,6 +97,15 @@ public class MCustomerResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-customers/paging")
+    @Timed
+    public ResponseEntity<Page<MCustomer>> getAllMCustomersWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MCustomers");
+        Page<MCustomer> page = mCustomerService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-customers");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-customers/:id : get the "id" mCustomer.
      *

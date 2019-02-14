@@ -97,6 +97,16 @@ public class MPlywoodGradeResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-plywood-grades/paging")
+    @Timed
+    public ResponseEntity<Page<MPlywoodGrade>> getAllMPlywoodGradesWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MPlywoodGrades");
+        Page<MPlywoodGrade> page = mPlywoodGradeService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-plywood-grades");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
+
     /**
      * GET  /m-plywood-grades/:id : get the "id" mPlywoodGrade.
      *

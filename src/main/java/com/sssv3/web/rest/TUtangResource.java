@@ -96,6 +96,15 @@ public class TUtangResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/t-utangs/paging")
+    @Timed
+    public ResponseEntity<Page<TUtang>> getAllTUtangsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of TUtangs");
+        Page<TUtang> page = tUtangService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/t-utangs");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /t-utangs/:id : get the "id" tUtang.
      *

@@ -97,6 +97,15 @@ public class MSatuanResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-satuans/paging")
+    @Timed
+    public ResponseEntity<Page<MSatuan>> getAllMSatuansWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MSatuans");
+        Page<MSatuan> page = mSatuanService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-satuans");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-satuans/:id : get the "id" mSatuan.
      *

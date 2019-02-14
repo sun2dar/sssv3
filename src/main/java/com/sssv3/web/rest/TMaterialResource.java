@@ -96,6 +96,14 @@ public class TMaterialResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/t-materials/paging")
+    @Timed
+    public ResponseEntity<Page<TMaterial>> getAllTMaterialsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of TMaterials");
+        Page<TMaterial> page = tMaterialService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/t-materials");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
     /**
      * GET  /t-materials/:id : get the "id" tMaterial.
      *

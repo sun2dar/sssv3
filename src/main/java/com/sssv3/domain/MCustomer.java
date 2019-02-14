@@ -34,10 +34,10 @@ public class MCustomer implements Serializable {
     private String nama;
 
     @Column(name = "telepon")
-    private Long telepon;
+    private String telepon;
 
     @Column(name = "mobilephone")
-    private Long mobilephone;
+    private String mobilephone;
 
     @Lob
     @Column(name = "alamat")
@@ -75,29 +75,29 @@ public class MCustomer implements Serializable {
         this.nama = nama;
     }
 
-    public Long getTelepon() {
+    public String getTelepon() {
         return telepon;
     }
 
-    public MCustomer telepon(Long telepon) {
+    public MCustomer telepon(String telepon) {
         this.telepon = telepon;
         return this;
     }
 
-    public void setTelepon(Long telepon) {
+    public void setTelepon(String telepon) {
         this.telepon = telepon;
     }
 
-    public Long getMobilephone() {
+    public String getMobilephone() {
         return mobilephone;
     }
 
-    public MCustomer mobilephone(Long mobilephone) {
+    public MCustomer mobilephone(String mobilephone) {
         this.mobilephone = mobilephone;
         return this;
     }
 
-    public void setMobilephone(Long mobilephone) {
+    public void setMobilephone(String mobilephone) {
         this.mobilephone = mobilephone;
     }
 
@@ -191,8 +191,8 @@ public class MCustomer implements Serializable {
         return "MCustomer{" +
             "id=" + getId() +
             ", nama='" + getNama() + "'" +
-            ", telepon=" + getTelepon() +
-            ", mobilephone=" + getMobilephone() +
+            ", telepon='" + getTelepon() + "'" +
+            ", mobilephone='" + getMobilephone() + "'" +
             ", alamat='" + getAlamat() + "'" +
             ", status='" + getStatus() + "'" +
             ", createdOn='" + getCreatedOn() + "'" +

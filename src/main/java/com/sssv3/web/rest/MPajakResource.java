@@ -97,6 +97,15 @@ public class MPajakResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-pajaks/paging")
+    @Timed
+    public ResponseEntity<Page<MPajak>> getAllMPajaksWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MPajaks");
+        Page<MPajak> page = mPajakService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-pajaks");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-pajaks/:id : get the "id" mPajak.
      *

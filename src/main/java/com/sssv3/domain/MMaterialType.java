@@ -45,7 +45,7 @@ public class MMaterialType implements Serializable {
     @Column(name = "created_on")
     private LocalDate createdOn;
 
-    @OneToMany(mappedBy = "materialtype")
+    @OneToMany(mappedBy = "materialtype", cascade = CascadeType.ALL)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<MMaterial> materials = new HashSet<>();
     @ManyToOne

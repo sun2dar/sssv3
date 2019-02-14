@@ -97,6 +97,16 @@ public class MConstantResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-constants/paging")
+    @Timed
+    public ResponseEntity<Page<MConstant>> getAllMConstantsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MConstants");
+        Page<MConstant> page = mConstantService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-constants");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
+
     /**
      * GET  /m-constants/:id : get the "id" mConstant.
      *

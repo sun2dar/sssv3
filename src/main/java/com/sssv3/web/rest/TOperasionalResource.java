@@ -96,6 +96,16 @@ public class TOperasionalResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/t-operasionals/paging")
+    @Timed
+    public ResponseEntity<Page<TOperasional>> getAllTOperasionalsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of TOperasionals");
+        Page<TOperasional> page = tOperasionalService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/t-operasionals");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
+
     /**
      * GET  /t-operasionals/:id : get the "id" tOperasional.
      *

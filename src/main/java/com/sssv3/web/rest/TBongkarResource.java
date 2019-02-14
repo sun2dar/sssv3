@@ -96,6 +96,15 @@ public class TBongkarResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/t-bongkars/paging")
+    @Timed
+    public ResponseEntity<Page<TBongkar>> getAllTBongkarsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of TBongkars");
+        Page<TBongkar> page = tBongkarService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/t-bongkars");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /t-bongkars/:id : get the "id" tBongkar.
      *

@@ -97,6 +97,15 @@ public class MEkspedisiResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-ekspedisis/paging")
+    @Timed
+    public ResponseEntity<Page<MEkspedisi>> getAllMEkspedisisWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MEkspedisis");
+        Page<MEkspedisi> page = mEkspedisiService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-ekspedisis");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-ekspedisis/:id : get the "id" mEkspedisi.
      *

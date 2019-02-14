@@ -11,8 +11,8 @@ export const enum Status {
 export interface IMSupplier {
   id?: number;
   nama?: string;
-  telepon?: number;
-  mobilephone?: number;
+  telepon?: string;
+  mobilephone?: string;
   alamat?: any;
   status?: Status;
   createdOn?: Moment;

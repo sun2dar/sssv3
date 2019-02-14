@@ -96,6 +96,14 @@ public class MUtangResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-utangs/paging")
+    @Timed
+    public ResponseEntity<Page<MUtang>> getAllMUtangsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MUtangs");
+        Page<MUtang> page = mUtangService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-utangs");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
     /**
      * GET  /m-utangs/:id : get the "id" mUtang.
      *

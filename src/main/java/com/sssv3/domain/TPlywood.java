@@ -45,7 +45,7 @@ public class TPlywood implements Serializable {
     @JsonIgnoreProperties("tplywoods")
     private MPlywoodCategory plywoodcategory;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("tplywoods")
     private Transaksi transaksi;
 

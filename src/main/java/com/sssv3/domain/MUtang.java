@@ -51,7 +51,7 @@ public class MUtang implements Serializable {
     @OneToMany(mappedBy = "mutang")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TUtang> tutangs = new HashSet<>();
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("mutangs")
     private Transaksi transaksi;
 

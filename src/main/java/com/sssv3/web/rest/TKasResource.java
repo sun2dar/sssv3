@@ -96,6 +96,15 @@ public class TKasResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/t-kas/paging")
+    @Timed
+    public ResponseEntity<Page<TKas>> getAllTKasWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of TKas");
+        Page<TKas> page = tKasService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/t-kas");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /t-kas/:id : get the "id" tKas.
      *

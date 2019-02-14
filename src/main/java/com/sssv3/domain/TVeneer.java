@@ -45,7 +45,7 @@ public class TVeneer implements Serializable {
     @JsonIgnoreProperties("tveneers")
     private MVeneerCategory veneercategory;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("tveneers")
     private Transaksi transaksi;
 

@@ -28,6 +28,7 @@ public interface TransaksiService {
      */
     Page<Transaksi> findAll(Pageable pageable);
 
+    Page<Transaksi> findByInvoiceNoOrSupplierName(String invoicenoOrSupplierNama, Pageable pageable);
 
     /**
      * Get the "id" transaksi.

@@ -96,6 +96,15 @@ public class MKasResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-kas/paging")
+    @Timed
+    public ResponseEntity<Page<MKas>> getAllMKasWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MKas");
+        Page<MKas> page = mKasService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-kas");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-kas/:id : get the "id" mKas.
      *

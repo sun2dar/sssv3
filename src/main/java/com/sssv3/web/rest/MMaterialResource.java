@@ -97,6 +97,14 @@ public class MMaterialResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-materials/paging")
+    @Timed
+    public ResponseEntity<Page<MMaterial>> getAllMMaterialsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MMaterials");
+        Page<MMaterial> page = mMaterialService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-materials");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
     /**
      * GET  /m-materials/:id : get the "id" mMaterial.
      *

@@ -48,7 +48,7 @@ public class TLog implements Serializable {
     @JsonIgnoreProperties("tlogs")
     private MLogCategory mlogcat;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("tlogs")
     private Transaksi transaksi;
 

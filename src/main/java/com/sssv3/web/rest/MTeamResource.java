@@ -97,6 +97,15 @@ public class MTeamResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-teams/paging")
+    @Timed
+    public ResponseEntity<Page<MTeam>> getAllMTeamsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MTeams");
+        Page<MTeam> page = mTeamService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-teams");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-teams/:id : get the "id" mTeam.
      *

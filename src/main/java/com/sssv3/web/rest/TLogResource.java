@@ -96,6 +96,14 @@ public class TLogResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/t-logs/paging")
+    @Timed
+    public ResponseEntity<Page<TLog>> getAllTLogsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of TLogs");
+        Page<TLog> page = tLogService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/t-logs");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
     /**
      * GET  /t-logs/:id : get the "id" tLog.
      *

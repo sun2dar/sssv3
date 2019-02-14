@@ -97,6 +97,24 @@ public class TransaksiResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/transaksis/paging")
+    @Timed
+    public ResponseEntity<Page<Transaksi>> getAllTransaksisWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of Transaksis");
+        Page<Transaksi> page = transaksiService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/transaksis");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
+    @GetMapping("/transaksis/searchByInvoiceNoOrSupplierName")
+    @Timed
+    public ResponseEntity<Page<Transaksi>> getTransaksiByInvoiceOrSupplier(String invoiceNoOrSupplierName, Pageable pageable) {
+        log.debug("REST request to get a page of Transaksis");
+        Page<Transaksi> page = transaksiService.findByInvoiceNoOrSupplierName(invoiceNoOrSupplierName, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/transaksis");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /transaksis/:id : get the "id" transaksi.
      *

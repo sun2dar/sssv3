@@ -96,6 +96,15 @@ public class MPlywoodResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-plywoods/paging")
+    @Timed
+    public ResponseEntity<Page<MPlywood>> getAllMPlywoodsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MPlywoods");
+        Page<MPlywood> page = mPlywoodService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-plywoods");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-plywoods/:id : get the "id" mPlywood.
      *

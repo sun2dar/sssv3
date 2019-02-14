@@ -97,6 +97,15 @@ public class MOperasionalTypeResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-operasional-types/paging")
+    @Timed
+    public ResponseEntity<Page<MOperasionalType>> getAllMOperasionalTypesWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MOperasionalTypes");
+        Page<MOperasionalType> page = mOperasionalTypeService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-operasional-types");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-operasional-types/:id : get the "id" mOperasionalType.
      *

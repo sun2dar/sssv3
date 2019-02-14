@@ -64,7 +64,7 @@ public class MMaterial implements Serializable {
     @JsonIgnoreProperties("materials")
     private MSatuan satuan;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("materials")
     private MMaterialType materialtype;
 

@@ -96,6 +96,15 @@ public class MMessageResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-messages/paging")
+    @Timed
+    public ResponseEntity<Page<MMessage>> getAllMMessagesWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MMessages");
+        Page<MMessage> page = mMessageService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-messages");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-messages/:id : get the "id" mMessage.
      *

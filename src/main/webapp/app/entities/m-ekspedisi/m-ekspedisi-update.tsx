@@ -118,13 +118,13 @@ export class MEkspedisiUpdate extends React.Component<IMEkspedisiUpdateProps, IM
                   <Label id="teleponLabel" for="telepon">
                     Telepon
                   </Label>
-                  <AvField id="m-ekspedisi-telepon" type="string" className="form-control" name="telepon" />
+                  <AvField id="m-ekspedisi-telepon" type="text" name="telepon" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="mobilephoneLabel" for="mobilephone">
                     Mobilephone
                   </Label>
-                  <AvField id="m-ekspedisi-mobilephone" type="string" className="form-control" name="mobilephone" />
+                  <AvField id="m-ekspedisi-mobilephone" type="text" name="mobilephone" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="alamatLabel" for="alamat">

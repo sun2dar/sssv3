@@ -97,6 +97,15 @@ public class MVeneerCategoryResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-veneer-categories/paging")
+    @Timed
+    public ResponseEntity<Page<MVeneerCategory>> getAllMVeneerCategoriesWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MVeneerCategories");
+        Page<MVeneerCategory> page = mVeneerCategoryService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-veneer-categories");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-veneer-categories/:id : get the "id" mVeneerCategory.
      *

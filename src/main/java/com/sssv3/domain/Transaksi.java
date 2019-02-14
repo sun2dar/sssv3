@@ -66,22 +66,22 @@ public class Transaksi implements Serializable {
     @Column(name = "created_on")
     private LocalDate createdOn;
 
-    @OneToMany(mappedBy = "transaksi")
+    @OneToMany(mappedBy = "transaksi", cascade = CascadeType.ALL)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TLog> tlogs = new HashSet<>();
-    @OneToMany(mappedBy = "transaksi")
+    @OneToMany(mappedBy = "transaksi", cascade = CascadeType.ALL )
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TVeneer> tveneers = new HashSet<>();
-    @OneToMany(mappedBy = "transaksi")
+    @OneToMany(mappedBy = "transaksi", cascade = CascadeType.ALL)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TPlywood> tplywoods = new HashSet<>();
-    @OneToMany(mappedBy = "transaksi")
+    @OneToMany(mappedBy = "transaksi", cascade = CascadeType.ALL)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TMaterial> tmaterials = new HashSet<>();
-    @OneToMany(mappedBy = "transaksi")
+    @OneToMany(mappedBy = "transaksi", cascade = CascadeType.ALL)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TBongkar> tbongkars = new HashSet<>();
-    @OneToMany(mappedBy = "transaksi")
+    @OneToMany(mappedBy = "transaksi", cascade = CascadeType.ALL)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<MUtang> mutangs = new HashSet<>();
     @ManyToOne

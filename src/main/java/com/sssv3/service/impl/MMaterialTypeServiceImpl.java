@@ -37,6 +37,7 @@ public class MMaterialTypeServiceImpl implements MMaterialTypeService {
     @Override
     public MMaterialType save(MMaterialType mMaterialType) {
         log.debug("Request to save MMaterialType : {}", mMaterialType);
+        System.out.println("TEST MATERIAL CASCADE MASTER");
         return mMaterialTypeRepository.save(mMaterialType);
     }
 

@@ -26,11 +26,11 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="telepon" type="bigint">
+            <column name="telepon" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="mobilephone" type="bigint">
+            <column name="mobilephone" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 

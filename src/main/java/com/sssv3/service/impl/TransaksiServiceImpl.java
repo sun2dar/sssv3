@@ -1,5 +1,6 @@
 package com.sssv3.service.impl;
 
+import com.sssv3.domain.MLog;
 import com.sssv3.service.TransaksiService;
 import com.sssv3.domain.Transaksi;
 import com.sssv3.repository.TransaksiRepository;
@@ -35,9 +36,60 @@ public class TransaksiServiceImpl implements TransaksiService {
      * @return the persisted entity
      */
     @Override
+    @Transactional
     public Transaksi save(Transaksi transaksi) {
         log.debug("Request to save Transaksi : {}", transaksi);
-        return transaksiRepository.save(transaksi);
+        //return transaksiRepository.save(transaksi);
+        Transaksi tr = transaksiRepository.save(transaksi);
+
+        if(tr.getTipe().name() == "PEMBELIAN"){
+            switch (tr.getCategory().name()){
+                case("LOG") :
+                    break;
+                case("VENEER") :
+                    break;
+                /*case("PLYWOOD") :
+                    break;*/
+                case("MATERIAL") :
+                    break;
+            }
+        }
+        else if(tr.getTipe().name() == "PENJUALAN"){
+            switch (tr.getCategory().name()) {
+                case ("LOG"):
+                    break;
+                case ("VENEER"):
+                    break;
+                case ("PLYWOOD"):
+                    break;
+                case ("MATERIAL"):
+                    break;
+            }
+        }
+        else if(tr.getTipe().name() == "PRODUKSI"){
+            /*case("LOG") :
+                break;
+            case("VENEER") :
+                break;
+            case("PLYWOOD") :
+                break;
+            case("MATERIAL") :
+                break;*/
+        }
+        else if(tr.getTipe().name() == "STOCKOPNAME"){
+            switch (tr.getCategory().name()) {
+                case ("LOG"):
+                    break;
+                case ("VENEER"):
+                    break;
+                case ("PLYWOOD"):
+                    break;
+                case ("MATERIAL"):
+                    break;
+            }
+        }
+
+        return tr;
     }
 
     /**
@@ -51,6 +103,12 @@ public class TransaksiServiceImpl implements TransaksiService {
     public Page<Transaksi> findAll(Pageable pageable) {
         log.debug("Request to get all Transaksis");
         return transaksiRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Transaksi> findByInvoiceNoOrSupplierName(String invoicenoOrSupplierNama, Pageable pageable) {
+        log.debug("Request to get Transaksis search by invoiceno or suppliername");
+        return transaksiRepository.findByInvoicenoOrSuppliername(invoicenoOrSupplierNama, pageable);
     }
 
 

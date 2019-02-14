@@ -42,7 +42,7 @@ public class TMaterial implements Serializable {
     @JsonIgnoreProperties("tmaterials")
     private MMaterial mmaterial;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("tmaterials")
     private Transaksi transaksi;
 

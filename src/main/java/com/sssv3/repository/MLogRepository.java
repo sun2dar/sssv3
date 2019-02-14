@@ -20,4 +20,8 @@ public interface MLogRepository extends JpaRepository<MLog, Long> {
     List<MLog> findByCreatedbyIsCurrentUser();
 
     Page<MLog> findByNamaContainingIgnoreCase(@Param("id") String nama, Pageable var);
+
+    @Modifying
+    @Query("update MLog c set c.qty = ?4 where c.mlogcat = ?1 and c.diameter = ?2 and c.panjang = ?3")
+    Integer setFlagTcpo(int catid, Double diameter, Double panjang, Double qty);
 }

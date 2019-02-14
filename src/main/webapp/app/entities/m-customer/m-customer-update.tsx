@@ -112,13 +112,13 @@ export class MCustomerUpdate extends React.Component<IMCustomerUpdateProps, IMCu
                   <Label id="teleponLabel" for="telepon">
                     Telepon
                   </Label>
-                  <AvField id="m-customer-telepon" type="string" className="form-control" name="telepon" />
+                  <AvField id="m-customer-telepon" type="text" name="telepon" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="mobilephoneLabel" for="mobilephone">
                     Mobilephone
                   </Label>
-                  <AvField id="m-customer-mobilephone" type="string" className="form-control" name="mobilephone" />
+                  <AvField id="m-customer-mobilephone" type="text" name="mobilephone" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="alamatLabel" for="alamat">

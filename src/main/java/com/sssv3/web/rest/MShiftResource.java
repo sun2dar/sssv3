@@ -97,6 +97,15 @@ public class MShiftResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-shifts/paging")
+    @Timed
+    public ResponseEntity<Page<MShift>> getAllMShiftsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MShifts");
+        Page<MShift> page = mShiftService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-shifts");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-shifts/:id : get the "id" mShift.
      *

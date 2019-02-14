@@ -97,6 +97,15 @@ public class MLogResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-logs/paging")
+    @Timed
+    public ResponseEntity<Page<MLog>> getAllMLogsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MLogs");
+        Page<MLog> page = mLogService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-logs");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     @GetMapping("/m-logs/search")
     @Timed
     public ResponseEntity<Page<MLog>> getAllMLogs(@RequestParam(value = "nama") String nama, Pageable pageable) {

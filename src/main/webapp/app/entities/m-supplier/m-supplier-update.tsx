@@ -118,13 +118,13 @@ export class MSupplierUpdate extends React.Component<IMSupplierUpdateProps, IMSu
                   <Label id="teleponLabel" for="telepon">
                     Telepon
                   </Label>
-                  <AvField id="m-supplier-telepon" type="string" className="form-control" name="telepon" />
+                  <AvField id="m-supplier-telepon" type="text" name="telepon" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="mobilephoneLabel" for="mobilephone">
                     Mobilephone
                   </Label>
-                  <AvField id="m-supplier-mobilephone" type="string" className="form-control" name="mobilephone" />
+                  <AvField id="m-supplier-mobilephone" type="text" name="mobilephone" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="alamatLabel" for="alamat">

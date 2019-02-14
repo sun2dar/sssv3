@@ -47,11 +47,11 @@ public class MEkspedisiResourceIntTest {
     private static final String DEFAULT_NAMA = "AAAAAAAAAA";
     private static final String UPDATED_NAMA = "BBBBBBBBBB";
 
-    private static final Long DEFAULT_TELEPON = 1L;
-    private static final Long UPDATED_TELEPON = 2L;
+    private static final String DEFAULT_TELEPON = "AAAAAAAAAA";
+    private static final String UPDATED_TELEPON = "BBBBBBBBBB";
 
-    private static final Long DEFAULT_MOBILEPHONE = 1L;
-    private static final Long UPDATED_MOBILEPHONE = 2L;
+    private static final String DEFAULT_MOBILEPHONE = "AAAAAAAAAA";
+    private static final String UPDATED_MOBILEPHONE = "BBBBBBBBBB";
 
     private static final String DEFAULT_ALAMAT = "AAAAAAAAAA";
     private static final String UPDATED_ALAMAT = "BBBBBBBBBB";
@@ -189,8 +189,8 @@ public class MEkspedisiResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(mEkspedisi.getId().intValue())))
             .andExpect(jsonPath("$.[*].nama").value(hasItem(DEFAULT_NAMA.toString())))
-            .andExpect(jsonPath("$.[*].telepon").value(hasItem(DEFAULT_TELEPON.intValue())))
-            .andExpect(jsonPath("$.[*].mobilephone").value(hasItem(DEFAULT_MOBILEPHONE.intValue())))
+            .andExpect(jsonPath("$.[*].telepon").value(hasItem(DEFAULT_TELEPON.toString())))
+            .andExpect(jsonPath("$.[*].mobilephone").value(hasItem(DEFAULT_MOBILEPHONE.toString())))
             .andExpect(jsonPath("$.[*].alamat").value(hasItem(DEFAULT_ALAMAT.toString())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
             .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())));
@@ -208,8 +208,8 @@ public class MEkspedisiResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(mEkspedisi.getId().intValue()))
             .andExpect(jsonPath("$.nama").value(DEFAULT_NAMA.toString()))
-            .andExpect(jsonPath("$.telepon").value(DEFAULT_TELEPON.intValue()))
-            .andExpect(jsonPath("$.mobilephone").value(DEFAULT_MOBILEPHONE.intValue()))
+            .andExpect(jsonPath("$.telepon").value(DEFAULT_TELEPON.toString()))
+            .andExpect(jsonPath("$.mobilephone").value(DEFAULT_MOBILEPHONE.toString()))
             .andExpect(jsonPath("$.alamat").value(DEFAULT_ALAMAT.toString()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
             .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()));

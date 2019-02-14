@@ -10,11 +10,11 @@
         },
         {
             "fieldName": "telepon",
-            "fieldType": "Long"
+            "fieldType": "String"
         },
         {
             "fieldName": "mobilephone",
-            "fieldType": "Long"
+            "fieldType": "String"
         },
         {
             "fieldName": "alamat",

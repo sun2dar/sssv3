@@ -97,6 +97,15 @@ public class MPaytypeResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-paytypes/paging")
+    @Timed
+    public ResponseEntity<Page<MPaytype>> getAllMPaytypesWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MPaytypes");
+        Page<MPaytype> page = mPaytypeService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-paytypes");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-paytypes/:id : get the "id" mPaytype.
      *

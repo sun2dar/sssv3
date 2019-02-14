@@ -29,7 +29,7 @@ public class TBongkar implements Serializable {
     @Column(name = "volume")
     private Double volume;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("tbongkars")
     private Transaksi transaksi;
 

@@ -97,6 +97,15 @@ public class MLogTypeResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-log-types/paging")
+    @Timed
+    public ResponseEntity<Page<MLogType>> getAllMLogTypesWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MLogTypes");
+        Page<MLogType> page = mLogTypeService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-log-types");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /m-log-types/:id : get the "id" mLogType.
      *

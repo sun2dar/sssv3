@@ -97,6 +97,16 @@ public class MSupplierResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/m-suppliers/paging")
+    @Timed
+    public ResponseEntity<Page<MSupplier>> getAllMSuppliersWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MSuppliers");
+        Page<MSupplier> page = mSupplierService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-suppliers");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
+
     /**
      * GET  /m-suppliers/:id : get the "id" mSupplier.
      *

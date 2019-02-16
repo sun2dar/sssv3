@@ -29,10 +29,6 @@ export class TLogDetail extends React.Component<ITLogDetailProps> {
           </h2>
           <dl className="jh-entity-details">
             <dt>
-              <span id="panjang">Panjang</span>
-            </dt>
-            <dd>{tLogEntity.panjang}</dd>
-            <dt>
               <span id="qty">Qty</span>
             </dt>
             <dd>{tLogEntity.qty}</dd>
@@ -52,10 +48,10 @@ export class TLogDetail extends React.Component<ITLogDetailProps> {
               <span id="inout">Inout</span>
             </dt>
             <dd>{tLogEntity.inout}</dd>
-            <dt>Mlogcat</dt>
-            <dd>{tLogEntity.mlogcat ? tLogEntity.mlogcat.nama : ''}</dd>
             <dt>Transaksi</dt>
             <dd>{tLogEntity.transaksi ? tLogEntity.transaksi.invoiceno : ''}</dd>
+            <dt>Mlog</dt>
+            <dd>{tLogEntity.mlog ? tLogEntity.mlog.id : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/t-log" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

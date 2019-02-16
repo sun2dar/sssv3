@@ -1,5 +1,5 @@
-import { IMLogCategory } from 'app/shared/model//m-log-category.model';
 import { ITransaksi } from 'app/shared/model//transaksi.model';
+import { IMLog } from 'app/shared/model//m-log.model';
 
 export const enum InOut {
   IN = 'IN',
@@ -8,14 +8,13 @@ export const enum InOut {
 
 export interface ITLog {
   id?: number;
-  panjang?: number;
   qty?: number;
   volume?: number;
   hargaBeli?: number;
   hargaTotal?: number;
   inout?: InOut;
-  mlogcat?: IMLogCategory;
   transaksi?: ITransaksi;
+  mlog?: IMLog;
 }
 
 export const defaultValue: Readonly<ITLog> = {};

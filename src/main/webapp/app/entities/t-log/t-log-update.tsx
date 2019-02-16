@@ -8,10 +8,10 @@ import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipste
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
-import { IMLogCategory } from 'app/shared/model/m-log-category.model';
-import { getEntities as getMLogCategories } from 'app/entities/m-log-category/m-log-category.reducer';
 import { ITransaksi } from 'app/shared/model/transaksi.model';
 import { getEntities as getTransaksis } from 'app/entities/transaksi/transaksi.reducer';
+import { IMLog } from 'app/shared/model/m-log.model';
+import { getEntities as getMLogs } from 'app/entities/m-log/m-log.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './t-log.reducer';
 import { ITLog } from 'app/shared/model/t-log.model';
 // tslint:disable-next-line:no-unused-variable
@@ -22,16 +22,16 @@ export interface ITLogUpdateProps extends StateProps, DispatchProps, RouteCompon
 
 export interface ITLogUpdateState {
   isNew: boolean;
-  mlogcatId: string;
   transaksiId: string;
+  mlogId: string;
 }
 
 export class TLogUpdate extends React.Component<ITLogUpdateProps, ITLogUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      mlogcatId: '0',
       transaksiId: '0',
+      mlogId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -49,8 +49,8 @@ export class TLogUpdate extends React.Component<ITLogUpdateProps, ITLogUpdateSta
       this.props.getEntity(this.props.match.params.id);
     }
 
-    this.props.getMLogCategories();
     this.props.getTransaksis();
+    this.props.getMLogs();
   }
 
   saveEntity = (event, errors, values) => {
@@ -74,7 +74,7 @@ export class TLogUpdate extends React.Component<ITLogUpdateProps, ITLogUpdateSta
   };
 
   render() {
-    const { tLogEntity, mLogCategories, transaksis, loading, updating } = this.props;
+    const { tLogEntity, transaksis, mLogs, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -96,12 +96,6 @@ export class TLogUpdate extends React.Component<ITLogUpdateProps, ITLogUpdateSta
                     <AvInput id="t-log-id" type="text" className="form-control" name="id" required readOnly />
                   </AvGroup>
                 ) : null}
-                <AvGroup>
-                  <Label id="panjangLabel" for="panjang">
-                    Panjang
-                  </Label>
-                  <AvField id="t-log-panjang" type="string" className="form-control" name="panjang" />
-                </AvGroup>
                 <AvGroup>
                   <Label id="qtyLabel" for="qty">
                     Qty
@@ -140,19 +134,6 @@ export class TLogUpdate extends React.Component<ITLogUpdateProps, ITLogUpdateSta
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
-                  <Label for="mlogcat.nama">Mlogcat</Label>
-                  <AvInput id="t-log-mlogcat" type="select" className="form-control" name="mlogcat.id">
-                    <option value="" key="0" />
-                    {mLogCategories
-                      ? mLogCategories.map(otherEntity => (
-                          <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.nama}
-                          </option>
-                        ))
-                      : null}
-                  </AvInput>
-                </AvGroup>
-                <AvGroup>
                   <Label for="transaksi.invoiceno">Transaksi</Label>
                   <AvInput id="t-log-transaksi" type="select" className="form-control" name="transaksi.id">
                     <option value="" key="0" />
@@ -160,6 +141,19 @@ export class TLogUpdate extends React.Component<ITLogUpdateProps, ITLogUpdateSta
                       ? transaksis.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
                             {otherEntity.invoiceno}
+                          </option>
+                        ))
+                      : null}
+                  </AvInput>
+                </AvGroup>
+                <AvGroup>
+                  <Label for="mlog.id">Mlog</Label>
+                  <AvInput id="t-log-mlog" type="select" className="form-control" name="mlog.id">
+                    <option value="" key="0" />
+                    {mLogs
+                      ? mLogs.map(otherEntity => (
+                          <option value={otherEntity.id} key={otherEntity.id}>
+                            {otherEntity.id}
                           </option>
                         ))
                       : null}
@@ -185,8 +179,8 @@ export class TLogUpdate extends React.Component<ITLogUpdateProps, ITLogUpdateSta
 }
 
 const mapStateToProps = (storeState: IRootState) => ({
-  mLogCategories: storeState.mLogCategory.entities,
   transaksis: storeState.transaksi.entities,
+  mLogs: storeState.mLog.entities,
   tLogEntity: storeState.tLog.entity,
   loading: storeState.tLog.loading,
   updating: storeState.tLog.updating,
@@ -194,8 +188,8 @@ const mapStateToProps = (storeState: IRootState) => ({
 });
 
 const mapDispatchToProps = {
-  getMLogCategories,
   getTransaksis,
+  getMLogs,
   getEntity,
   updateEntity,
   createEntity,

@@ -42,7 +42,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="veneercategory_id" type="bigint">
+            <column name="mveneer_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

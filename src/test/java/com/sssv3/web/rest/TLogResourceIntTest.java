@@ -41,9 +41,6 @@ import com.sssv3.domain.enumeration.InOut;
 @SpringBootTest(classes = Ssv3App.class)
 public class TLogResourceIntTest {
 
-    private static final Double DEFAULT_PANJANG = 1D;
-    private static final Double UPDATED_PANJANG = 2D;
-
     private static final Double DEFAULT_QTY = 1D;
     private static final Double UPDATED_QTY = 2D;
 
@@ -100,7 +97,6 @@ public class TLogResourceIntTest {
      */
     public static TLog createEntity(EntityManager em) {
         TLog tLog = new TLog()
-            .panjang(DEFAULT_PANJANG)
             .qty(DEFAULT_QTY)
             .volume(DEFAULT_VOLUME)
             .hargaBeli(DEFAULT_HARGA_BELI)
@@ -129,7 +125,6 @@ public class TLogResourceIntTest {
         List<TLog> tLogList = tLogRepository.findAll();
         assertThat(tLogList).hasSize(databaseSizeBeforeCreate + 1);
         TLog testTLog = tLogList.get(tLogList.size() - 1);
-        assertThat(testTLog.getPanjang()).isEqualTo(DEFAULT_PANJANG);
         assertThat(testTLog.getQty()).isEqualTo(DEFAULT_QTY);
         assertThat(testTLog.getVolume()).isEqualTo(DEFAULT_VOLUME);
         assertThat(testTLog.getHargaBeli()).isEqualTo(DEFAULT_HARGA_BELI);
@@ -167,7 +162,6 @@ public class TLogResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tLog.getId().intValue())))
-            .andExpect(jsonPath("$.[*].panjang").value(hasItem(DEFAULT_PANJANG.doubleValue())))
             .andExpect(jsonPath("$.[*].qty").value(hasItem(DEFAULT_QTY.doubleValue())))
             .andExpect(jsonPath("$.[*].volume").value(hasItem(DEFAULT_VOLUME.doubleValue())))
             .andExpect(jsonPath("$.[*].hargaBeli").value(hasItem(DEFAULT_HARGA_BELI.doubleValue())))
@@ -186,7 +180,6 @@ public class TLogResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(tLog.getId().intValue()))
-            .andExpect(jsonPath("$.panjang").value(DEFAULT_PANJANG.doubleValue()))
             .andExpect(jsonPath("$.qty").value(DEFAULT_QTY.doubleValue()))
             .andExpect(jsonPath("$.volume").value(DEFAULT_VOLUME.doubleValue()))
             .andExpect(jsonPath("$.hargaBeli").value(DEFAULT_HARGA_BELI.doubleValue()))
@@ -215,7 +208,6 @@ public class TLogResourceIntTest {
         // Disconnect from session so that the updates on updatedTLog are not directly saved in db
         em.detach(updatedTLog);
         updatedTLog
-            .panjang(UPDATED_PANJANG)
             .qty(UPDATED_QTY)
             .volume(UPDATED_VOLUME)
             .hargaBeli(UPDATED_HARGA_BELI)
@@ -231,7 +223,6 @@ public class TLogResourceIntTest {
         List<TLog> tLogList = tLogRepository.findAll();
         assertThat(tLogList).hasSize(databaseSizeBeforeUpdate);
         TLog testTLog = tLogList.get(tLogList.size() - 1);
-        assertThat(testTLog.getPanjang()).isEqualTo(UPDATED_PANJANG);
         assertThat(testTLog.getQty()).isEqualTo(UPDATED_QTY);
         assertThat(testTLog.getVolume()).isEqualTo(UPDATED_VOLUME);
         assertThat(testTLog.getHargaBeli()).isEqualTo(UPDATED_HARGA_BELI);

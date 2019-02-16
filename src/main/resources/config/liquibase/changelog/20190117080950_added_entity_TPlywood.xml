@@ -42,7 +42,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="plywoodcategory_id" type="bigint">
+            <column name="mplywood_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

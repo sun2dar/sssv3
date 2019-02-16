@@ -51,12 +51,6 @@
             "otherEntityRelationshipName": "plywoodcategory"
         },
         {
-            "relationshipType": "one-to-many",
-            "relationshipName": "tplywood",
-            "otherEntityName": "tPlywood",
-            "otherEntityRelationshipName": "plywoodcategory"
-        },
-        {
             "relationshipType": "many-to-one",
             "relationshipName": "createdby",
             "otherEntityName": "user",

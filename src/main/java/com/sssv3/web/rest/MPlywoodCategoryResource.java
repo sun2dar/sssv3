@@ -60,6 +60,15 @@ public class MPlywoodCategoryResource {
             .body(result);
     }
 
+    @GetMapping("/mplywoodcategories/paging")
+    @Timed
+    public ResponseEntity<Page<MPlywoodCategory>> getAllMPlywoodCategoriesWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MPlywoodCategories");
+        Page<MPlywoodCategory> page = mPlywoodCategoryService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/mplywoodcategories");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * PUT  /m-plywood-categories : Updates an existing mPlywoodCategory.
      *
@@ -96,16 +105,6 @@ public class MPlywoodCategoryResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-plywood-categories");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
-
-    @GetMapping("/m-plywood-categories/paging")
-    @Timed
-    public ResponseEntity<Page<MPlywoodCategory>> getAllMPlywoodCategoriesWithPaging(Pageable pageable) {
-        log.debug("REST request to get a page of MPlywoodCategories");
-        Page<MPlywoodCategory> page = mPlywoodCategoryService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-plywood-categories");
-        return ResponseEntity.ok().headers(headers).body(page);
-    }
-
 
     /**
      * GET  /m-plywood-categories/:id : get the "id" mPlywoodCategory.

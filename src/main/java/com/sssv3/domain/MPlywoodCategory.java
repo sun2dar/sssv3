@@ -63,9 +63,6 @@ public class MPlywoodCategory implements Serializable {
     @OneToMany(mappedBy = "plywoodcategory")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<MPlywood> mplywoods = new HashSet<>();
-    @OneToMany(mappedBy = "plywoodcategory")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<TPlywood> tplywoods = new HashSet<>();
     @ManyToOne
     @JsonIgnoreProperties("")
     private User createdby;
@@ -223,31 +220,6 @@ public class MPlywoodCategory implements Serializable {
 
     public void setMplywoods(Set<MPlywood> mPlywoods) {
         this.mplywoods = mPlywoods;
-    }
-
-    public Set<TPlywood> getTplywoods() {
-        return tplywoods;
-    }
-
-    public MPlywoodCategory tplywoods(Set<TPlywood> tPlywoods) {
-        this.tplywoods = tPlywoods;
-        return this;
-    }
-
-    public MPlywoodCategory addTplywood(TPlywood tPlywood) {
-        this.tplywoods.add(tPlywood);
-        tPlywood.setPlywoodcategory(this);
-        return this;
-    }
-
-    public MPlywoodCategory removeTplywood(TPlywood tPlywood) {
-        this.tplywoods.remove(tPlywood);
-        tPlywood.setPlywoodcategory(null);
-        return this;
-    }
-
-    public void setTplywoods(Set<TPlywood> tPlywoods) {
-        this.tplywoods = tPlywoods;
     }
 
     public User getCreatedby() {

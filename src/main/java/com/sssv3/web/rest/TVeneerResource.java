@@ -96,15 +96,14 @@ public class TVeneerResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
-    @GetMapping("/t-veneers/paging")
+    @GetMapping("/tveneers/paging")
     @Timed
     public ResponseEntity<Page<TVeneer>> getAllTVeneersWithPaging(Pageable pageable) {
         log.debug("REST request to get a page of TVeneers");
         Page<TVeneer> page = tVeneerService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/t-veneers");
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/tveneers");
         return ResponseEntity.ok().headers(headers).body(page);
     }
-
     /**
      * GET  /t-veneers/:id : get the "id" tVeneer.
      *

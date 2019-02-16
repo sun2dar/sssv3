@@ -1,6 +1,5 @@
 import { Moment } from 'moment';
 import { IMVeneer } from 'app/shared/model//m-veneer.model';
-import { ITVeneer } from 'app/shared/model//t-veneer.model';
 import { IUser } from 'app/shared/model/user.model';
 
 export const enum VeneerType {
@@ -35,7 +34,6 @@ export interface IMVeneerCategory {
   status?: Status;
   createdOn?: Moment;
   mveneers?: IMVeneer[];
-  tveneers?: ITVeneer[];
   createdby?: IUser;
 }
 

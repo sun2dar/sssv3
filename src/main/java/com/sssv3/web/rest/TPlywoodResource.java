@@ -96,12 +96,12 @@ public class TPlywoodResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
-    @GetMapping("/t-plywoods/paging")
+    @GetMapping("/tplywoods/paging")
     @Timed
     public ResponseEntity<Page<TPlywood>> getAllTPlywoodsWithPaging(Pageable pageable) {
         log.debug("REST request to get a page of TPlywoods");
         Page<TPlywood> page = tPlywoodService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/t-plywoods");
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/tplywoods");
         return ResponseEntity.ok().headers(headers).body(page);
     }
 

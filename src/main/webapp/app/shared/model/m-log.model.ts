@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+import { ITLog } from 'app/shared/model//t-log.model';
 import { IUser } from 'app/shared/model/user.model';
 import { IMLogCategory } from 'app/shared/model//m-log-category.model';
 
@@ -17,6 +18,7 @@ export interface IMLog {
   qty?: number;
   status?: Status;
   createdOn?: Moment;
+  tlogs?: ITLog[];
   createdby?: IUser;
   mlogcat?: IMLogCategory;
 }

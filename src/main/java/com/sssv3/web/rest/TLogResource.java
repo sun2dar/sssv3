@@ -104,6 +104,7 @@ public class TLogResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/t-logs");
         return ResponseEntity.ok().headers(headers).body(page);
     }
+
     /**
      * GET  /t-logs/:id : get the "id" tLog.
      *

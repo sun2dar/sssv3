@@ -43,7 +43,7 @@ public class TVeneer implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("tveneers")
-    private MVeneerCategory veneercategory;
+    private MVeneer mveneer;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("tveneers")
@@ -123,17 +123,17 @@ public class TVeneer implements Serializable {
         this.inout = inout;
     }
 
-    public MVeneerCategory getVeneercategory() {
-        return veneercategory;
+    public MVeneer getMveneer() {
+        return mveneer;
     }
 
-    public TVeneer veneercategory(MVeneerCategory mVeneerCategory) {
-        this.veneercategory = mVeneerCategory;
+    public TVeneer mveneer(MVeneer mVeneer) {
+        this.mveneer = mVeneer;
         return this;
     }
 
-    public void setVeneercategory(MVeneerCategory mVeneerCategory) {
-        this.veneercategory = mVeneerCategory;
+    public void setMveneer(MVeneer mVeneer) {
+        this.mveneer = mVeneer;
     }
 
     public Transaksi getTransaksi() {

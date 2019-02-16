@@ -20,7 +20,9 @@ public interface TransaksiRepository extends JpaRepository<Transaksi, Long> {
     List<Transaksi> findByCreatedbyIsCurrentUser();
 
     @Query("select transaksi from Transaksi transaksi " +
-        "where lower(transaksi.invoiceno) LIKE CONCAT('%', lower(:invoiceNoOrSupplierName) ,'%') " +
-        "OR lower(transaksi.supplier.nama) = CONCAT('%', lower(:invoiceNoOrSupplierName) ,'%') ")
+                "where lower(transaksi.invoiceno) LIKE CONCAT('%', lower(:invoiceNoOrSupplierName) ,'%') " +
+                "OR lower(transaksi.supplier.nama) = CONCAT('%', lower(:invoiceNoOrSupplierName) ,'%') ")
     Page<Transaksi> findByInvoicenoOrSuppliername (@Param("invoiceNoOrSupplierName") String invoiceNoOrSupplierName, Pageable pageable);
+
+    Page<Transaksi> findByTipeAndAndCategory (String tipe, String category, Pageable pageable);
 }

@@ -1,4 +1,4 @@
-import { IMPlywoodCategory } from 'app/shared/model//m-plywood-category.model';
+import { IMPlywood } from 'app/shared/model//m-plywood.model';
 import { ITransaksi } from 'app/shared/model//transaksi.model';
 
 export const enum InOut {
@@ -13,7 +13,7 @@ export interface ITPlywood {
   hargaBeli?: number;
   hargaTotal?: number;
   inout?: InOut;
-  plywoodcategory?: IMPlywoodCategory;
+  mplywood?: IMPlywood;
   transaksi?: ITransaksi;
 }
 

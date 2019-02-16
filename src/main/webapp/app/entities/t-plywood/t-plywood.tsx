@@ -82,7 +82,7 @@ export class TPlywood extends React.Component<ITPlywoodProps, ITPlywoodState> {
                   Inout <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Plywoodcategory <FontAwesomeIcon icon="sort" />
+                  Mplywood <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Transaksi <FontAwesomeIcon icon="sort" />
@@ -103,13 +103,7 @@ export class TPlywood extends React.Component<ITPlywoodProps, ITPlywoodState> {
                   <td>{tPlywood.hargaBeli}</td>
                   <td>{tPlywood.hargaTotal}</td>
                   <td>{tPlywood.inout}</td>
-                  <td>
-                    {tPlywood.plywoodcategory ? (
-                      <Link to={`m-plywood-category/${tPlywood.plywoodcategory.id}`}>{tPlywood.plywoodcategory.nama}</Link>
-                    ) : (
-                      ''
-                    )}
-                  </td>
+                  <td>{tPlywood.mplywood ? <Link to={`m-plywood/${tPlywood.mplywood.id}`}>{tPlywood.mplywood.id}</Link> : ''}</td>
                   <td>{tPlywood.transaksi ? <Link to={`transaksi/${tPlywood.transaksi.id}`}>{tPlywood.transaksi.invoiceno}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">

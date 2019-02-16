@@ -66,10 +66,13 @@ public class Transaksi implements Serializable {
     @Column(name = "created_on")
     private LocalDate createdOn;
 
+    @Column(name = "deskripsi")
+    private String deskripsi;
+
     @OneToMany(mappedBy = "transaksi", cascade = CascadeType.ALL)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TLog> tlogs = new HashSet<>();
-    @OneToMany(mappedBy = "transaksi", cascade = CascadeType.ALL )
+    @OneToMany(mappedBy = "transaksi", cascade = CascadeType.ALL)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TVeneer> tveneers = new HashSet<>();
     @OneToMany(mappedBy = "transaksi", cascade = CascadeType.ALL)
@@ -240,6 +243,19 @@ public class Transaksi implements Serializable {
 
     public void setCreatedOn(LocalDate createdOn) {
         this.createdOn = createdOn;
+    }
+
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public Transaksi deskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+        return this;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
     }
 
     public Set<TLog> getTlogs() {
@@ -530,6 +546,7 @@ public class Transaksi implements Serializable {
             ", nopol='" + getNopol() + "'" +
             ", status='" + getStatus() + "'" +
             ", createdOn='" + getCreatedOn() + "'" +
+            ", deskripsi='" + getDeskripsi() + "'" +
             "}";
     }
 }

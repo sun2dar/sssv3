@@ -256,6 +256,12 @@ export class TransaksiUpdate extends React.Component<ITransaksiUpdateProps, ITra
                   <AvField id="transaksi-createdOn" type="date" className="form-control" name="createdOn" />
                 </AvGroup>
                 <AvGroup>
+                  <Label id="deskripsiLabel" for="deskripsi">
+                    Deskripsi
+                  </Label>
+                  <AvField id="transaksi-deskripsi" type="text" name="deskripsi" />
+                </AvGroup>
+                <AvGroup>
                   <Label for="createdby.login">Createdby</Label>
                   <AvInput id="transaksi-createdby" type="select" className="form-control" name="createdby.id">
                     <option value="" key="0" />

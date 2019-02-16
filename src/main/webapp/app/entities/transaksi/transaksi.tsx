@@ -99,6 +99,9 @@ export class Transaksi extends React.Component<ITransaksiProps, ITransaksiState>
                 <th className="hand" onClick={this.sort('createdOn')}>
                   Created On <FontAwesomeIcon icon="sort" />
                 </th>
+                <th className="hand" onClick={this.sort('deskripsi')}>
+                  Deskripsi <FontAwesomeIcon icon="sort" />
+                </th>
                 <th>
                   Createdby <FontAwesomeIcon icon="sort" />
                 </th>
@@ -161,6 +164,7 @@ export class Transaksi extends React.Component<ITransaksiProps, ITransaksiState>
                   <td>
                     <TextFormat type="date" value={transaksi.createdOn} format={APP_LOCAL_DATE_FORMAT} />
                   </td>
+                  <td>{transaksi.deskripsi}</td>
                   <td>{transaksi.createdby ? transaksi.createdby.login : ''}</td>
                   <td>{transaksi.shift ? <Link to={`m-shift/${transaksi.shift.id}`}>{transaksi.shift.nama}</Link> : ''}</td>
                   <td>{transaksi.supplier ? <Link to={`m-supplier/${transaksi.supplier.id}`}>{transaksi.supplier.nama}</Link> : ''}</td>

@@ -26,9 +26,9 @@
     "relationships": [
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "veneercategory",
-            "otherEntityName": "mVeneerCategory",
-            "otherEntityField": "nama"
+            "relationshipName": "mveneer",
+            "otherEntityName": "mVeneer",
+            "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-one",

@@ -1,5 +1,6 @@
 package com.sssv3.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -8,6 +9,8 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 import com.sssv3.domain.enumeration.Status;
@@ -42,6 +45,9 @@ public class MVeneer implements Serializable {
     @Column(name = "created_on")
     private LocalDate createdOn;
 
+    @OneToMany(mappedBy = "mveneer")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<TVeneer> tveneers = new HashSet<>();
     @ManyToOne
     @JsonIgnoreProperties("")
     private User createdby;
@@ -122,6 +128,31 @@ public class MVeneer implements Serializable {
 
     public void setCreatedOn(LocalDate createdOn) {
         this.createdOn = createdOn;
+    }
+
+    public Set<TVeneer> getTveneers() {
+        return tveneers;
+    }
+
+    public MVeneer tveneers(Set<TVeneer> tVeneers) {
+        this.tveneers = tVeneers;
+        return this;
+    }
+
+    public MVeneer addTveneer(TVeneer tVeneer) {
+        this.tveneers.add(tVeneer);
+        tVeneer.setMveneer(this);
+        return this;
+    }
+
+    public MVeneer removeTveneer(TVeneer tVeneer) {
+        this.tveneers.remove(tVeneer);
+        tVeneer.setMveneer(null);
+        return this;
+    }
+
+    public void setTveneers(Set<TVeneer> tVeneers) {
+        this.tveneers = tVeneers;
     }
 
     public User getCreatedby() {

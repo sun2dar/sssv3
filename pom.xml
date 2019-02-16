@@ -586,8 +586,8 @@
                         <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                         <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                         <driver>com.mysql.jdbc.Driver</driver>
-                        <url>jdbc:mysql://localhost:3306/ssv3</url>
-                        <defaultSchemaName>ssv3</defaultSchemaName>
+                        <url>jdbc:mysql://localhost:3306/ssvnew</url>
+                        <defaultSchemaName>ssvnew</defaultSchemaName>
                         <username>sss</username>
                         <password>P@ssw0rd</password>
                         <referenceUrl>hibernate:spring:com.sssv3.domain?dialect=org.hibernate.dialect.MySQL5InnoDBDialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>

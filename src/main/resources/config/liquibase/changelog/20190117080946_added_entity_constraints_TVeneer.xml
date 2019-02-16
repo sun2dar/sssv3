@@ -8,11 +8,11 @@
     -->
     <changeSet id="20190117080946-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="veneercategory_id"
+        <addForeignKeyConstraint baseColumnNames="mveneer_id"
                                  baseTableName="t_veneer"
-                                 constraintName="fk_tveneer_veneercategory_id"
+                                 constraintName="fk_tveneer_mveneer_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="m_veneer_category"/>
+                                 referencedTableName="m_veneer"/>
 
         <addForeignKeyConstraint baseColumnNames="transaksi_id"
                                  baseTableName="t_veneer"

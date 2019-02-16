@@ -78,6 +78,10 @@ export class TransaksiDetail extends React.Component<ITransaksiDetailProps> {
             <dd>
               <TextFormat value={transaksiEntity.createdOn} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
+            <dt>
+              <span id="deskripsi">Deskripsi</span>
+            </dt>
+            <dd>{transaksiEntity.deskripsi}</dd>
             <dt>Createdby</dt>
             <dd>{transaksiEntity.createdby ? transaksiEntity.createdby.login : ''}</dd>
             <dt>Shift</dt>

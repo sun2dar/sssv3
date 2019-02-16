@@ -25,6 +25,12 @@
     ],
     "relationships": [
         {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tveneer",
+            "otherEntityName": "tVeneer",
+            "otherEntityRelationshipName": "mveneer"
+        },
+        {
             "relationshipType": "many-to-one",
             "relationshipName": "createdby",
             "otherEntityName": "user",

@@ -66,9 +66,6 @@ export class TLog extends React.Component<ITLogProps, ITLogState> {
                 <th className="hand" onClick={this.sort('id')}>
                   ID <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={this.sort('panjang')}>
-                  Panjang <FontAwesomeIcon icon="sort" />
-                </th>
                 <th className="hand" onClick={this.sort('qty')}>
                   Qty <FontAwesomeIcon icon="sort" />
                 </th>
@@ -85,10 +82,10 @@ export class TLog extends React.Component<ITLogProps, ITLogState> {
                   Inout <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Mlogcat <FontAwesomeIcon icon="sort" />
+                  Transaksi <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Transaksi <FontAwesomeIcon icon="sort" />
+                  Mlog <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -101,14 +98,13 @@ export class TLog extends React.Component<ITLogProps, ITLogState> {
                       {tLog.id}
                     </Button>
                   </td>
-                  <td>{tLog.panjang}</td>
                   <td>{tLog.qty}</td>
                   <td>{tLog.volume}</td>
                   <td>{tLog.hargaBeli}</td>
                   <td>{tLog.hargaTotal}</td>
                   <td>{tLog.inout}</td>
-                  <td>{tLog.mlogcat ? <Link to={`m-log-category/${tLog.mlogcat.id}`}>{tLog.mlogcat.nama}</Link> : ''}</td>
                   <td>{tLog.transaksi ? <Link to={`transaksi/${tLog.transaksi.id}`}>{tLog.transaksi.invoiceno}</Link> : ''}</td>
+                  <td>{tLog.mlog ? <Link to={`m-log/${tLog.mlog.id}`}>{tLog.mlog.id}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${tLog.id}`} color="info" size="sm">

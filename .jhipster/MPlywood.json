@@ -25,6 +25,12 @@
     ],
     "relationships": [
         {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tplywood",
+            "otherEntityName": "tPlywood",
+            "otherEntityRelationshipName": "mplywood"
+        },
+        {
             "relationshipType": "many-to-one",
             "relationshipName": "createdby",
             "otherEntityName": "user",

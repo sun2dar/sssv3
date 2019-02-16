@@ -2,10 +2,6 @@
     "name": "TLog",
     "fields": [
         {
-            "fieldName": "panjang",
-            "fieldType": "Double"
-        },
-        {
             "fieldName": "qty",
             "fieldType": "Double"
         },
@@ -30,15 +26,15 @@
     "relationships": [
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "mlogcat",
-            "otherEntityName": "mLogCategory",
-            "otherEntityField": "nama"
-        },
-        {
-            "relationshipType": "many-to-one",
             "relationshipName": "transaksi",
             "otherEntityName": "transaksi",
             "otherEntityField": "invoiceno"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "mlog",
+            "otherEntityName": "mLog",
+            "otherEntityField": "id"
         }
     ],
     "changelogDate": "20190117080943",

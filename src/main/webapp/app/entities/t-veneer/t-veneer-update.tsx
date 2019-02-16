@@ -8,8 +8,8 @@ import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipste
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
-import { IMVeneerCategory } from 'app/shared/model/m-veneer-category.model';
-import { getEntities as getMVeneerCategories } from 'app/entities/m-veneer-category/m-veneer-category.reducer';
+import { IMVeneer } from 'app/shared/model/m-veneer.model';
+import { getEntities as getMVeneers } from 'app/entities/m-veneer/m-veneer.reducer';
 import { ITransaksi } from 'app/shared/model/transaksi.model';
 import { getEntities as getTransaksis } from 'app/entities/transaksi/transaksi.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './t-veneer.reducer';
@@ -22,7 +22,7 @@ export interface ITVeneerUpdateProps extends StateProps, DispatchProps, RouteCom
 
 export interface ITVeneerUpdateState {
   isNew: boolean;
-  veneercategoryId: string;
+  mveneerId: string;
   transaksiId: string;
 }
 
@@ -30,7 +30,7 @@ export class TVeneerUpdate extends React.Component<ITVeneerUpdateProps, ITVeneer
   constructor(props) {
     super(props);
     this.state = {
-      veneercategoryId: '0',
+      mveneerId: '0',
       transaksiId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
@@ -49,7 +49,7 @@ export class TVeneerUpdate extends React.Component<ITVeneerUpdateProps, ITVeneer
       this.props.getEntity(this.props.match.params.id);
     }
 
-    this.props.getMVeneerCategories();
+    this.props.getMVeneers();
     this.props.getTransaksis();
   }
 
@@ -74,7 +74,7 @@ export class TVeneerUpdate extends React.Component<ITVeneerUpdateProps, ITVeneer
   };
 
   render() {
-    const { tVeneerEntity, mVeneerCategories, transaksis, loading, updating } = this.props;
+    const { tVeneerEntity, mVeneers, transaksis, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -134,13 +134,13 @@ export class TVeneerUpdate extends React.Component<ITVeneerUpdateProps, ITVeneer
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
-                  <Label for="veneercategory.nama">Veneercategory</Label>
-                  <AvInput id="t-veneer-veneercategory" type="select" className="form-control" name="veneercategory.id">
+                  <Label for="mveneer.id">Mveneer</Label>
+                  <AvInput id="t-veneer-mveneer" type="select" className="form-control" name="mveneer.id">
                     <option value="" key="0" />
-                    {mVeneerCategories
-                      ? mVeneerCategories.map(otherEntity => (
+                    {mVeneers
+                      ? mVeneers.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.nama}
+                            {otherEntity.id}
                           </option>
                         ))
                       : null}
@@ -179,7 +179,7 @@ export class TVeneerUpdate extends React.Component<ITVeneerUpdateProps, ITVeneer
 }
 
 const mapStateToProps = (storeState: IRootState) => ({
-  mVeneerCategories: storeState.mVeneerCategory.entities,
+  mVeneers: storeState.mVeneer.entities,
   transaksis: storeState.transaksi.entities,
   tVeneerEntity: storeState.tVeneer.entity,
   loading: storeState.tVeneer.loading,
@@ -188,7 +188,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 });
 
 const mapDispatchToProps = {
-  getMVeneerCategories,
+  getMVeneers,
   getTransaksis,
   getEntity,
   updateEntity,

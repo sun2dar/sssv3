@@ -1,6 +1,5 @@
 import { Moment } from 'moment';
 import { IMLog } from 'app/shared/model//m-log.model';
-import { ITLog } from 'app/shared/model//t-log.model';
 import { IUser } from 'app/shared/model/user.model';
 import { IMLogType } from 'app/shared/model//m-log-type.model';
 
@@ -20,7 +19,6 @@ export interface IMLogCategory {
   status?: Status;
   createdOn?: Moment;
   mlogs?: IMLog[];
-  tlogs?: ITLog[];
   createdby?: IUser;
   mlogtype?: IMLogType;
 }

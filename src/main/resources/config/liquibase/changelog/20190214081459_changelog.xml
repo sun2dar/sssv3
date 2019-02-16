@@ -1,0 +1,51 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="sumar (generated)" id="1550132109282-1">
+        <addColumn tableName="t_log">
+            <column name="mlog_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-2">
+        <addColumn tableName="t_plywood">
+            <column name="mplywood_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-3">
+        <addColumn tableName="t_veneer">
+            <column name="mveneer_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-4">
+        <addForeignKeyConstraint baseColumnNames="mlog_id" baseTableName="t_log" constraintName="FK652rauxo6dv2nrq758a8sm36f" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_log"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-5">
+        <addForeignKeyConstraint baseColumnNames="mplywood_id" baseTableName="t_plywood" constraintName="FK85db19bud4nqjseuy63hgsms4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_plywood"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-6">
+        <addForeignKeyConstraint baseColumnNames="mveneer_id" baseTableName="t_veneer" constraintName="FKagiwvcpfrfw9yra0gw1lt1a30" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_veneer"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-7">
+        <dropForeignKeyConstraint baseTableName="t_log" constraintName="fk_tlog_mlogcat_id"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-8">
+        <dropForeignKeyConstraint baseTableName="t_plywood" constraintName="fk_tplywood_plywoodcategory_id"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-9">
+        <dropForeignKeyConstraint baseTableName="t_veneer" constraintName="fk_tveneer_veneercategory_id"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-10">
+        <dropTable tableName="jhi_date_time_wrapper"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-11">
+        <dropColumn columnName="mlogcat_id" tableName="t_log"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-12">
+        <dropColumn columnName="panjang" tableName="t_log"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-13">
+        <dropColumn columnName="plywoodcategory_id" tableName="t_plywood"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550132109282-14">
+        <dropColumn columnName="veneercategory_id" tableName="t_veneer"/>
+    </changeSet>
+</databaseChangeLog>

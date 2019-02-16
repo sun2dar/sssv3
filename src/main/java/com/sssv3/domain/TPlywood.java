@@ -43,7 +43,7 @@ public class TPlywood implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("tplywoods")
-    private MPlywoodCategory plywoodcategory;
+    private MPlywood mplywood;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("tplywoods")
@@ -123,17 +123,17 @@ public class TPlywood implements Serializable {
         this.inout = inout;
     }
 
-    public MPlywoodCategory getPlywoodcategory() {
-        return plywoodcategory;
+    public MPlywood getMplywood() {
+        return mplywood;
     }
 
-    public TPlywood plywoodcategory(MPlywoodCategory mPlywoodCategory) {
-        this.plywoodcategory = mPlywoodCategory;
+    public TPlywood mplywood(MPlywood mPlywood) {
+        this.mplywood = mPlywood;
         return this;
     }
 
-    public void setPlywoodcategory(MPlywoodCategory mPlywoodCategory) {
-        this.plywoodcategory = mPlywoodCategory;
+    public void setMplywood(MPlywood mPlywood) {
+        this.mplywood = mPlywood;
     }
 
     public Transaksi getTransaksi() {

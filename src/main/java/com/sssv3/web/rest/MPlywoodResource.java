@@ -81,6 +81,14 @@ public class MPlywoodResource {
             .body(result);
     }
 
+    @GetMapping("/mplywoods/paging")
+    @Timed
+    public ResponseEntity<Page<MPlywood>> getAllMPlywoodsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MPlywoods");
+        Page<MPlywood> page = mPlywoodService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/mplywoods");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
     /**
      * GET  /m-plywoods : get all the mPlywoods.
      *
@@ -94,15 +102,6 @@ public class MPlywoodResource {
         Page<MPlywood> page = mPlywoodService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-plywoods");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
-    }
-
-    @GetMapping("/m-plywoods/paging")
-    @Timed
-    public ResponseEntity<Page<MPlywood>> getAllMPlywoodsWithPaging(Pageable pageable) {
-        log.debug("REST request to get a page of MPlywoods");
-        Page<MPlywood> page = mPlywoodService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-plywoods");
-        return ResponseEntity.ok().headers(headers).body(page);
     }
 
     /**

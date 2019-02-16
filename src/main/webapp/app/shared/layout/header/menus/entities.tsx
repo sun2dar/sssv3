@@ -148,6 +148,46 @@ export const EntitiesMenu = props => (
       <FontAwesomeIcon icon="asterisk" />
       &nbsp;M Customer
     </DropdownItem>
+    <DropdownItem tag={Link} to="/entity/m-log-category">
+      <FontAwesomeIcon icon="asterisk" />
+      &nbsp;M Log Category
+    </DropdownItem>
+    <DropdownItem tag={Link} to="/entity/m-log">
+      <FontAwesomeIcon icon="asterisk" />
+      &nbsp;M Log
+    </DropdownItem>
+    <DropdownItem tag={Link} to="/entity/t-log">
+      <FontAwesomeIcon icon="asterisk" />
+      &nbsp;T Log
+    </DropdownItem>
+    <DropdownItem tag={Link} to="/entity/m-veneer-category">
+      <FontAwesomeIcon icon="asterisk" />
+      &nbsp;M Veneer Category
+    </DropdownItem>
+    <DropdownItem tag={Link} to="/entity/m-veneer">
+      <FontAwesomeIcon icon="asterisk" />
+      &nbsp;M Veneer
+    </DropdownItem>
+    <DropdownItem tag={Link} to="/entity/t-veneer">
+      <FontAwesomeIcon icon="asterisk" />
+      &nbsp;T Veneer
+    </DropdownItem>
+    <DropdownItem tag={Link} to="/entity/m-plywood-category">
+      <FontAwesomeIcon icon="asterisk" />
+      &nbsp;M Plywood Category
+    </DropdownItem>
+    <DropdownItem tag={Link} to="/entity/m-plywood">
+      <FontAwesomeIcon icon="asterisk" />
+      &nbsp;M Plywood
+    </DropdownItem>
+    <DropdownItem tag={Link} to="/entity/t-plywood">
+      <FontAwesomeIcon icon="asterisk" />
+      &nbsp;T Plywood
+    </DropdownItem>
+    <DropdownItem tag={Link} to="/entity/transaksi">
+      <FontAwesomeIcon icon="asterisk" />
+      &nbsp;Transaksi
+    </DropdownItem>
     {/* jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here */}
   </NavDropdown>
 );

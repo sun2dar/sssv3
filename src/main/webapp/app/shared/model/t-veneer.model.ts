@@ -1,4 +1,4 @@
-import { IMVeneerCategory } from 'app/shared/model//m-veneer-category.model';
+import { IMVeneer } from 'app/shared/model//m-veneer.model';
 import { ITransaksi } from 'app/shared/model//transaksi.model';
 
 export const enum InOut {
@@ -13,7 +13,7 @@ export interface ITVeneer {
   hargaBeli?: number;
   hargaTotal?: number;
   inout?: InOut;
-  veneercategory?: IMVeneerCategory;
+  mveneer?: IMVeneer;
   transaksi?: ITransaksi;
 }
 

@@ -48,8 +48,8 @@ export class TVeneerDetail extends React.Component<ITVeneerDetailProps> {
               <span id="inout">Inout</span>
             </dt>
             <dd>{tVeneerEntity.inout}</dd>
-            <dt>Veneercategory</dt>
-            <dd>{tVeneerEntity.veneercategory ? tVeneerEntity.veneercategory.nama : ''}</dd>
+            <dt>Mveneer</dt>
+            <dd>{tVeneerEntity.mveneer ? tVeneerEntity.mveneer.id : ''}</dd>
             <dt>Transaksi</dt>
             <dd>{tVeneerEntity.transaksi ? tVeneerEntity.transaksi.invoiceno : ''}</dd>
           </dl>

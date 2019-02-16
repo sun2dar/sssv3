@@ -8,11 +8,11 @@
     -->
     <changeSet id="20190117080950-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="plywoodcategory_id"
+        <addForeignKeyConstraint baseColumnNames="mplywood_id"
                                  baseTableName="t_plywood"
-                                 constraintName="fk_tplywood_plywoodcategory_id"
+                                 constraintName="fk_tplywood_mplywood_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="m_plywood_category"/>
+                                 referencedTableName="m_plywood"/>
 
         <addForeignKeyConstraint baseColumnNames="transaksi_id"
                                  baseTableName="t_plywood"

@@ -1,6 +1,5 @@
 package com.sssv3.service.impl;
 
-import com.sssv3.domain.MLog;
 import com.sssv3.service.TransaksiService;
 import com.sssv3.domain.Transaksi;
 import com.sssv3.repository.TransaksiRepository;
@@ -48,7 +47,7 @@ public class TransaksiServiceImpl implements TransaksiService {
                     break;
                 case("VENEER") :
                     break;
-                /*case("PLYWOOD") :
+                                /*case("PLYWOOD") :
                     break;*/
                 case("MATERIAL") :
                     break;
@@ -67,7 +66,7 @@ public class TransaksiServiceImpl implements TransaksiService {
             }
         }
         else if(tr.getTipe().name() == "PRODUKSI"){
-            /*case("LOG") :
+                        /*case("LOG") :
                 break;
             case("VENEER") :
                 break;
@@ -90,6 +89,13 @@ public class TransaksiServiceImpl implements TransaksiService {
         }
 
         return tr;
+        //     return transaksiRepository.save(transaksi);
+    }
+
+    @Override
+    public Page<Transaksi> findByInvoiceNoOrSupplierName(String invoicenoOrSupplierNama, Pageable pageable) {
+        log.debug("Request to get Transaksis search by invoiceno or suppliername");
+        return transaksiRepository.findByInvoicenoOrSuppliername(invoicenoOrSupplierNama, pageable);
     }
 
     /**
@@ -103,12 +109,6 @@ public class TransaksiServiceImpl implements TransaksiService {
     public Page<Transaksi> findAll(Pageable pageable) {
         log.debug("Request to get all Transaksis");
         return transaksiRepository.findAll(pageable);
-    }
-
-    @Override
-    public Page<Transaksi> findByInvoiceNoOrSupplierName(String invoicenoOrSupplierNama, Pageable pageable) {
-        log.debug("Request to get Transaksis search by invoiceno or suppliername");
-        return transaksiRepository.findByInvoicenoOrSuppliername(invoicenoOrSupplierNama, pageable);
     }
 
 

@@ -57,6 +57,10 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="deskripsi" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
             <column name="createdby_id" type="bigint">
                 <constraints nullable="true" />
             </column>

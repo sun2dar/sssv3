@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+import { ITPlywood } from 'app/shared/model//t-plywood.model';
 import { IUser } from 'app/shared/model/user.model';
 import { IMPlywoodCategory } from 'app/shared/model//m-plywood-category.model';
 
@@ -15,6 +16,7 @@ export interface IMPlywood {
   qtyProduksi?: number;
   status?: Status;
   createdOn?: Moment;
+  tplywoods?: ITPlywood[];
   createdby?: IUser;
   plywoodcategory?: IMPlywoodCategory;
 }

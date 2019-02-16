@@ -48,8 +48,8 @@ export class TPlywoodDetail extends React.Component<ITPlywoodDetailProps> {
               <span id="inout">Inout</span>
             </dt>
             <dd>{tPlywoodEntity.inout}</dd>
-            <dt>Plywoodcategory</dt>
-            <dd>{tPlywoodEntity.plywoodcategory ? tPlywoodEntity.plywoodcategory.nama : ''}</dd>
+            <dt>Mplywood</dt>
+            <dd>{tPlywoodEntity.mplywood ? tPlywoodEntity.mplywood.id : ''}</dd>
             <dt>Transaksi</dt>
             <dd>{tPlywoodEntity.transaksi ? tPlywoodEntity.transaksi.invoiceno : ''}</dd>
           </dl>

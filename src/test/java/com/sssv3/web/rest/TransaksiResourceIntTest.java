@@ -72,6 +72,9 @@ public class TransaksiResourceIntTest {
     private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
 
+    private static final String DEFAULT_DESKRIPSI = "AAAAAAAAAA";
+    private static final String UPDATED_DESKRIPSI = "BBBBBBBBBB";
+
     @Autowired
     private TransaksiRepository transaksiRepository;
 
@@ -121,7 +124,8 @@ public class TransaksiResourceIntTest {
             .invoicefileContentType(DEFAULT_INVOICEFILE_CONTENT_TYPE)
             .nopol(DEFAULT_NOPOL)
             .status(DEFAULT_STATUS)
-            .createdOn(DEFAULT_CREATED_ON);
+            .createdOn(DEFAULT_CREATED_ON)
+            .deskripsi(DEFAULT_DESKRIPSI);
         return transaksi;
     }
 
@@ -154,6 +158,7 @@ public class TransaksiResourceIntTest {
         assertThat(testTransaksi.getNopol()).isEqualTo(DEFAULT_NOPOL);
         assertThat(testTransaksi.getStatus()).isEqualTo(DEFAULT_STATUS);
         assertThat(testTransaksi.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
+        assertThat(testTransaksi.getDeskripsi()).isEqualTo(DEFAULT_DESKRIPSI);
     }
 
     @Test
@@ -212,7 +217,8 @@ public class TransaksiResourceIntTest {
             .andExpect(jsonPath("$.[*].invoicefile").value(hasItem(Base64Utils.encodeToString(DEFAULT_INVOICEFILE))))
             .andExpect(jsonPath("$.[*].nopol").value(hasItem(DEFAULT_NOPOL.toString())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())));
+            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
+            .andExpect(jsonPath("$.[*].deskripsi").value(hasItem(DEFAULT_DESKRIPSI.toString())));
     }
     
     @Test
@@ -234,7 +240,8 @@ public class TransaksiResourceIntTest {
             .andExpect(jsonPath("$.invoicefile").value(Base64Utils.encodeToString(DEFAULT_INVOICEFILE)))
             .andExpect(jsonPath("$.nopol").value(DEFAULT_NOPOL.toString()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()));
+            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
+            .andExpect(jsonPath("$.deskripsi").value(DEFAULT_DESKRIPSI.toString()));
     }
 
     @Test
@@ -266,7 +273,8 @@ public class TransaksiResourceIntTest {
             .invoicefileContentType(UPDATED_INVOICEFILE_CONTENT_TYPE)
             .nopol(UPDATED_NOPOL)
             .status(UPDATED_STATUS)
-            .createdOn(UPDATED_CREATED_ON);
+            .createdOn(UPDATED_CREATED_ON)
+            .deskripsi(UPDATED_DESKRIPSI);
 
         restTransaksiMockMvc.perform(put("/api/transaksis")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -286,6 +294,7 @@ public class TransaksiResourceIntTest {
         assertThat(testTransaksi.getNopol()).isEqualTo(UPDATED_NOPOL);
         assertThat(testTransaksi.getStatus()).isEqualTo(UPDATED_STATUS);
         assertThat(testTransaksi.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
+        assertThat(testTransaksi.getDeskripsi()).isEqualTo(UPDATED_DESKRIPSI);
     }
 
     @Test

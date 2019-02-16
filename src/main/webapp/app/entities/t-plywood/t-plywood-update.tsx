@@ -8,8 +8,8 @@ import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipste
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
-import { IMPlywoodCategory } from 'app/shared/model/m-plywood-category.model';
-import { getEntities as getMPlywoodCategories } from 'app/entities/m-plywood-category/m-plywood-category.reducer';
+import { IMPlywood } from 'app/shared/model/m-plywood.model';
+import { getEntities as getMPlywoods } from 'app/entities/m-plywood/m-plywood.reducer';
 import { ITransaksi } from 'app/shared/model/transaksi.model';
 import { getEntities as getTransaksis } from 'app/entities/transaksi/transaksi.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './t-plywood.reducer';
@@ -22,7 +22,7 @@ export interface ITPlywoodUpdateProps extends StateProps, DispatchProps, RouteCo
 
 export interface ITPlywoodUpdateState {
   isNew: boolean;
-  plywoodcategoryId: string;
+  mplywoodId: string;
   transaksiId: string;
 }
 
@@ -30,7 +30,7 @@ export class TPlywoodUpdate extends React.Component<ITPlywoodUpdateProps, ITPlyw
   constructor(props) {
     super(props);
     this.state = {
-      plywoodcategoryId: '0',
+      mplywoodId: '0',
       transaksiId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
@@ -49,7 +49,7 @@ export class TPlywoodUpdate extends React.Component<ITPlywoodUpdateProps, ITPlyw
       this.props.getEntity(this.props.match.params.id);
     }
 
-    this.props.getMPlywoodCategories();
+    this.props.getMPlywoods();
     this.props.getTransaksis();
   }
 
@@ -74,7 +74,7 @@ export class TPlywoodUpdate extends React.Component<ITPlywoodUpdateProps, ITPlyw
   };
 
   render() {
-    const { tPlywoodEntity, mPlywoodCategories, transaksis, loading, updating } = this.props;
+    const { tPlywoodEntity, mPlywoods, transaksis, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -134,13 +134,13 @@ export class TPlywoodUpdate extends React.Component<ITPlywoodUpdateProps, ITPlyw
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
-                  <Label for="plywoodcategory.nama">Plywoodcategory</Label>
-                  <AvInput id="t-plywood-plywoodcategory" type="select" className="form-control" name="plywoodcategory.id">
+                  <Label for="mplywood.id">Mplywood</Label>
+                  <AvInput id="t-plywood-mplywood" type="select" className="form-control" name="mplywood.id">
                     <option value="" key="0" />
-                    {mPlywoodCategories
-                      ? mPlywoodCategories.map(otherEntity => (
+                    {mPlywoods
+                      ? mPlywoods.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.nama}
+                            {otherEntity.id}
                           </option>
                         ))
                       : null}
@@ -179,7 +179,7 @@ export class TPlywoodUpdate extends React.Component<ITPlywoodUpdateProps, ITPlyw
 }
 
 const mapStateToProps = (storeState: IRootState) => ({
-  mPlywoodCategories: storeState.mPlywoodCategory.entities,
+  mPlywoods: storeState.mPlywood.entities,
   transaksis: storeState.transaksi.entities,
   tPlywoodEntity: storeState.tPlywood.entity,
   loading: storeState.tPlywood.loading,
@@ -188,7 +188,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 });
 
 const mapDispatchToProps = {
-  getMPlywoodCategories,
+  getMPlywoods,
   getTransaksis,
   getEntity,
   updateEntity,

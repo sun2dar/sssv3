@@ -59,9 +59,6 @@ public class MLogCategory implements Serializable {
     @OneToMany(mappedBy = "mlogcat")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<MLog> mlogs = new HashSet<>();
-    @OneToMany(mappedBy = "mlogcat")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<TLog> tlogs = new HashSet<>();
     @ManyToOne
     @JsonIgnoreProperties("")
     private User createdby;
@@ -193,31 +190,6 @@ public class MLogCategory implements Serializable {
 
     public void setMlogs(Set<MLog> mLogs) {
         this.mlogs = mLogs;
-    }
-
-    public Set<TLog> getTlogs() {
-        return tlogs;
-    }
-
-    public MLogCategory tlogs(Set<TLog> tLogs) {
-        this.tlogs = tLogs;
-        return this;
-    }
-
-    public MLogCategory addTlog(TLog tLog) {
-        this.tlogs.add(tLog);
-        tLog.setMlogcat(this);
-        return this;
-    }
-
-    public MLogCategory removeTlog(TLog tLog) {
-        this.tlogs.remove(tLog);
-        tLog.setMlogcat(null);
-        return this;
-    }
-
-    public void setTlogs(Set<TLog> tLogs) {
-        this.tlogs = tLogs;
     }
 
     public User getCreatedby() {

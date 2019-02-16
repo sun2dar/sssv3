@@ -75,9 +75,6 @@ public class MVeneerCategory implements Serializable {
     @OneToMany(mappedBy = "veneercategory")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<MVeneer> mveneers = new HashSet<>();
-    @OneToMany(mappedBy = "veneercategory")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<TVeneer> tveneers = new HashSet<>();
     @ManyToOne
     @JsonIgnoreProperties("")
     private User createdby;
@@ -257,31 +254,6 @@ public class MVeneerCategory implements Serializable {
 
     public void setMveneers(Set<MVeneer> mVeneers) {
         this.mveneers = mVeneers;
-    }
-
-    public Set<TVeneer> getTveneers() {
-        return tveneers;
-    }
-
-    public MVeneerCategory tveneers(Set<TVeneer> tVeneers) {
-        this.tveneers = tVeneers;
-        return this;
-    }
-
-    public MVeneerCategory addTveneer(TVeneer tVeneer) {
-        this.tveneers.add(tVeneer);
-        tVeneer.setVeneercategory(this);
-        return this;
-    }
-
-    public MVeneerCategory removeTveneer(TVeneer tVeneer) {
-        this.tveneers.remove(tVeneer);
-        tVeneer.setVeneercategory(null);
-        return this;
-    }
-
-    public void setTveneers(Set<TVeneer> tVeneers) {
-        this.tveneers = tVeneers;
     }
 
     public User getCreatedby() {

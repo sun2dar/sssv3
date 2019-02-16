@@ -26,9 +26,9 @@
     "relationships": [
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "plywoodcategory",
-            "otherEntityName": "mPlywoodCategory",
-            "otherEntityField": "nama"
+            "relationshipName": "mplywood",
+            "otherEntityName": "mPlywood",
+            "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-one",

@@ -28,7 +28,6 @@ public interface MLogService {
      */
     Page<MLog> findAll(Pageable pageable);
 
-
     Page<MLog> findByNama(String nama, Pageable pageable);
 
     /**

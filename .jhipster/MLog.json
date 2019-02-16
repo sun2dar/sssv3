@@ -42,6 +42,12 @@
     ],
     "relationships": [
         {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tlog",
+            "otherEntityName": "tLog",
+            "otherEntityRelationshipName": "mlog"
+        },
+        {
             "relationshipType": "many-to-one",
             "relationshipName": "createdby",
             "otherEntityName": "user",

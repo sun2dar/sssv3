@@ -99,7 +99,7 @@ public class MVeneerResource {
     @GetMapping("/m-veneers/paging")
     @Timed
     public ResponseEntity<Page<MVeneer>> getAllMVeneersWithPaging(Pageable pageable) {
-        log.debug("REST request to get a page of MVeneers");
+       log.debug("REST request to get a page of MVeneers");
         Page<MVeneer> page = mVeneerService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-veneers");
         return ResponseEntity.ok().headers(headers).body(page);

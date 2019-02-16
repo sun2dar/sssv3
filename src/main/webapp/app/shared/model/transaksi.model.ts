@@ -46,6 +46,7 @@ export interface ITransaksi {
   nopol?: string;
   status?: Status;
   createdOn?: Moment;
+  deskripsi?: string;
   tlogs?: ITLog[];
   tveneers?: ITVeneer[];
   tplywoods?: ITPlywood[];

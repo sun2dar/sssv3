@@ -61,12 +61,6 @@
             "otherEntityRelationshipName": "veneercategory"
         },
         {
-            "relationshipType": "one-to-many",
-            "relationshipName": "tveneer",
-            "otherEntityName": "tVeneer",
-            "otherEntityRelationshipName": "veneercategory"
-        },
-        {
             "relationshipType": "many-to-one",
             "relationshipName": "createdby",
             "otherEntityName": "user",

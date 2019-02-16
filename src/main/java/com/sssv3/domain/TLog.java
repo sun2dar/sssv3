@@ -25,9 +25,6 @@ public class TLog implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "panjang")
-    private Double panjang;
-
     @Column(name = "qty")
     private Double qty;
 
@@ -44,13 +41,13 @@ public class TLog implements Serializable {
     @Column(name = "jhi_inout")
     private InOut inout;
 
-    @ManyToOne
-    @JsonIgnoreProperties("tlogs")
-    private MLogCategory mlogcat;
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("tlogs")
     private Transaksi transaksi;
+
+    @ManyToOne
+    @JsonIgnoreProperties("tlogs")
+    private MLog mlog;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -59,19 +56,6 @@ public class TLog implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Double getPanjang() {
-        return panjang;
-    }
-
-    public TLog panjang(Double panjang) {
-        this.panjang = panjang;
-        return this;
-    }
-
-    public void setPanjang(Double panjang) {
-        this.panjang = panjang;
     }
 
     public Double getQty() {
@@ -139,19 +123,6 @@ public class TLog implements Serializable {
         this.inout = inout;
     }
 
-    public MLogCategory getMlogcat() {
-        return mlogcat;
-    }
-
-    public TLog mlogcat(MLogCategory mLogCategory) {
-        this.mlogcat = mLogCategory;
-        return this;
-    }
-
-    public void setMlogcat(MLogCategory mLogCategory) {
-        this.mlogcat = mLogCategory;
-    }
-
     public Transaksi getTransaksi() {
         return transaksi;
     }
@@ -163,6 +134,19 @@ public class TLog implements Serializable {
 
     public void setTransaksi(Transaksi transaksi) {
         this.transaksi = transaksi;
+    }
+
+    public MLog getMlog() {
+        return mlog;
+    }
+
+    public TLog mlog(MLog mLog) {
+        this.mlog = mLog;
+        return this;
+    }
+
+    public void setMlog(MLog mLog) {
+        this.mlog = mLog;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -190,7 +174,6 @@ public class TLog implements Serializable {
     public String toString() {
         return "TLog{" +
             "id=" + getId() +
-            ", panjang=" + getPanjang() +
             ", qty=" + getQty() +
             ", volume=" + getVolume() +
             ", hargaBeli=" + getHargaBeli() +

@@ -60,6 +60,14 @@ public class MLogCategoryResource {
             .body(result);
     }
 
+    @GetMapping("/m-log-categories/paging")
+    @Timed
+    public ResponseEntity<Page<MLogCategory>> getAllMLogCategoriesWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MLogCategories");
+        Page<MLogCategory> page = mLogCategoryService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-log-categories");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
     /**
      * PUT  /m-log-categories : Updates an existing mLogCategory.
      *
@@ -95,15 +103,6 @@ public class MLogCategoryResource {
         Page<MLogCategory> page = mLogCategoryService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-log-categories");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
-    }
-
-    @GetMapping("/m-log-categories/paging")
-    @Timed
-    public ResponseEntity<Page<MLogCategory>> getAllMLogCategoriesWithPaging(Pageable pageable) {
-        log.debug("REST request to get a page of MLogCategories");
-        Page<MLogCategory> page = mLogCategoryService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-log-categories");
-        return ResponseEntity.ok().headers(headers).body(page);
     }
 
     /**

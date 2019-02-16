@@ -82,7 +82,7 @@ export class TVeneer extends React.Component<ITVeneerProps, ITVeneerState> {
                   Inout <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Veneercategory <FontAwesomeIcon icon="sort" />
+                  Mveneer <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Transaksi <FontAwesomeIcon icon="sort" />
@@ -103,13 +103,7 @@ export class TVeneer extends React.Component<ITVeneerProps, ITVeneerState> {
                   <td>{tVeneer.hargaBeli}</td>
                   <td>{tVeneer.hargaTotal}</td>
                   <td>{tVeneer.inout}</td>
-                  <td>
-                    {tVeneer.veneercategory ? (
-                      <Link to={`m-veneer-category/${tVeneer.veneercategory.id}`}>{tVeneer.veneercategory.nama}</Link>
-                    ) : (
-                      ''
-                    )}
-                  </td>
+                  <td>{tVeneer.mveneer ? <Link to={`m-veneer/${tVeneer.mveneer.id}`}>{tVeneer.mveneer.id}</Link> : ''}</td>
                   <td>{tVeneer.transaksi ? <Link to={`transaksi/${tVeneer.transaksi.id}`}>{tVeneer.transaksi.invoiceno}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">

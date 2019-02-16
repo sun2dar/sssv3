@@ -1,6 +1,5 @@
 import { Moment } from 'moment';
 import { IMPlywood } from 'app/shared/model//m-plywood.model';
-import { ITPlywood } from 'app/shared/model//t-plywood.model';
 import { IUser } from 'app/shared/model/user.model';
 import { IMPlywoodGrade } from 'app/shared/model//m-plywood-grade.model';
 
@@ -22,7 +21,6 @@ export interface IMPlywoodCategory {
   status?: Status;
   createdOn?: Moment;
   mplywoods?: IMPlywood[];
-  tplywoods?: ITPlywood[];
   createdby?: IUser;
   plywoodgrade?: IMPlywoodGrade;
 }

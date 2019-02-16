@@ -78,7 +78,6 @@ entity MLog {
 }
 
 entity TLog {
-    panjang Double,
     qty Double,
     volume Double,
     hargaBeli Double,
@@ -285,7 +284,8 @@ entity Transaksi {
     invoicefile ImageBlob,
     nopol String,
     status Status,
-    createdOn LocalDate
+    createdOn LocalDate,
+	deskripsi String
 }
 
 entity TBongkar {
@@ -326,23 +326,24 @@ relationship OneToMany {
     //Log foreign key
 	MLogType{mlog} to MLogCategory{mlogtype(nama)},
     MLogCategory{mlog} to MLog{mlogcat(nama)},
-    MLogCategory{tlog} to TLog{mlogcat(nama)},
+    //MLogCategory{tlog} to TLog{mlogcat(nama)},
     Transaksi{tlog} to TLog{transaksi(invoiceno)},
-    ////MLog{tlog} to TLog{mlog(nama)},
+    MLog{tlog} to TLog{mlog},
     ////MSatuan{mlog} to MLog{satuan(nama)},
     
     //Veneer Foreign key
     ////MSatuan{vennerkering} to MVeneerKering{satuan(nama)},
     MVeneerCategory{mveneer} to MVeneer{veneercategory(nama)},
-    MVeneerCategory{tveneer} to TVeneer{veneercategory(nama)},
+    //MVeneerCategory{tveneer} to TVeneer{veneercategory(nama)},
+	MVeneer{tveneer} to TVeneer{mveneer},
     Transaksi{tveneer} to TVeneer{transaksi(invoiceno)},
     
     //Plywood Foreign key
     MPlywoodGrade{plywoodcategory} to MPlywoodCategory{plywoodgrade(nama)},
     MPlywoodCategory{mplywood} to MPlywood{plywoodcategory(nama)},
-    MPlywoodCategory{tplywood} to TPlywood{plywoodcategory(nama)},
+    //MPlywoodCategory{tplywood} to TPlywood{plywoodcategory(nama)},
+	MPlywood{tplywood} to TPlywood{mplywood},
     Transaksi{tplywood} to TPlywood{transaksi(invoiceno)},
-    ////MPlywood{tplywood} to TPlywood{mplywood(nama)},
     ////MSatuan{plywood} to MPlywood{satuan(nama)},
     
     //Material Foreign key

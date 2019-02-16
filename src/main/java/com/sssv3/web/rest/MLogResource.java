@@ -60,6 +60,24 @@ public class MLogResource {
             .body(result);
     }
 
+    @GetMapping("/mlogs/paging")
+    @Timed
+    public ResponseEntity<Page<MLog>> getAllMLogsWithPaging(Pageable pageable) {
+        log.debug("REST request to get a page of MLogs");
+        Page<MLog> page = mLogService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/mlogs");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
+    @GetMapping("/mlogs/search")
+    @Timed
+    public ResponseEntity<Page<MLog>> getAllMLogs(@RequestParam(value = "nama") String nama, Pageable pageable) {
+        log.debug("REST request to get a page of Search in MLogs");
+        Page<MLog> page = mLogService.findByNama(nama, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/mlogs");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * PUT  /m-logs : Updates an existing mLog.
      *
@@ -95,24 +113,6 @@ public class MLogResource {
         Page<MLog> page = mLogService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-logs");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
-    }
-
-    @GetMapping("/m-logs/paging")
-    @Timed
-    public ResponseEntity<Page<MLog>> getAllMLogsWithPaging(Pageable pageable) {
-        log.debug("REST request to get a page of MLogs");
-        Page<MLog> page = mLogService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-logs");
-        return ResponseEntity.ok().headers(headers).body(page);
-    }
-
-    @GetMapping("/m-logs/search")
-    @Timed
-    public ResponseEntity<Page<MLog>> getAllMLogs(@RequestParam(value = "nama") String nama, Pageable pageable) {
-        log.debug("REST request to get a page of Search in MLogs");
-        Page<MLog> page = mLogService.findByNama(nama, pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/m-logs");
-        return ResponseEntity.ok().headers(headers).body(page);
     }
 
     /**

@@ -24,5 +24,5 @@ public interface TransaksiRepository extends JpaRepository<Transaksi, Long> {
                 "OR lower(transaksi.supplier.nama) = CONCAT('%', lower(:invoiceNoOrSupplierName) ,'%') ")
     Page<Transaksi> findByInvoicenoOrSuppliername (@Param("invoiceNoOrSupplierName") String invoiceNoOrSupplierName, Pageable pageable);
 
-    Page<Transaksi> findByTipeAndAndCategory (String tipe, String category, Pageable pageable);
+    Page<Transaksi> findByTipeAndCategory (String tipe, String category, Pageable pageable);
 }

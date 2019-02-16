@@ -115,6 +115,15 @@ public class TransaksiResource {
         return ResponseEntity.ok().headers(headers).body(page);
     }
 
+    @GetMapping("/transaksis/findByTipeAndCategory")
+    @Timed
+    public ResponseEntity<Page<Transaksi>> findByTipeAndCategory(String tipe, String category, Pageable pageable) {
+        log.debug("REST request to get a page of Transaksis");
+        Page<Transaksi> page = transaksiService.findByTipeAndCategory(tipe, category, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/transaksis/findByTipeAndCategory");
+        return ResponseEntity.ok().headers(headers).body(page);
+    }
+
     /**
      * GET  /transaksis/:id : get the "id" transaksi.
      *

@@ -30,6 +30,7 @@ public interface TransaksiService {
 
     Page<Transaksi> findByInvoiceNoOrSupplierName(String invoicenoOrSupplierNama, Pageable pageable);
 
+    Page<Transaksi> findByTipeAndCategory(String tipe, String category, Pageable pageable);
     /**
      * Get the "id" transaksi.
      *

@@ -1,0 +1,711 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="sumar (generated)" id="1550310565237-1">
+        <createTable tableName="jhi_authority">
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-2">
+        <createTable tableName="jhi_persistent_audit_event">
+            <column autoIncrement="true" name="event_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_persistent_audit_eventPK"/>
+            </column>
+            <column name="event_date" type="TINYBLOB"/>
+            <column name="event_type" type="VARCHAR(255)"/>
+            <column name="principal" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-3">
+        <createTable tableName="jhi_persistent_audit_evt_data">
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-4">
+        <createTable tableName="jhi_user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_userPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="activated" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activation_key" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(254)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="image_url" type="VARCHAR(256)"/>
+            <column name="lang_key" type="VARCHAR(6)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="login" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password_hash" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reset_date" type="TINYBLOB"/>
+            <column name="reset_key" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-5">
+        <createTable tableName="jhi_user_authority">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-6">
+        <createTable tableName="m_constant">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_constantPK"/>
+            </column>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nominal" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-7">
+        <createTable tableName="m_customer">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_customerPK"/>
+            </column>
+            <column name="alamat" type="LONGTEXT"/>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="mobilephone" type="VARCHAR(255)"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="telepon" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-8">
+        <createTable tableName="m_ekspedisi">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_ekspedisiPK"/>
+            </column>
+            <column name="alamat" type="LONGTEXT"/>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="mobilephone" type="VARCHAR(255)"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="telepon" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-9">
+        <createTable tableName="m_kas">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_kasPK"/>
+            </column>
+            <column name="nominal" type="DOUBLE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-10">
+        <createTable tableName="m_log">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_logPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="diameter" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="harga_beli" type="DOUBLE"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="panjang" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="qty" type="DOUBLE"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+            <column name="mlogcat_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-11">
+        <createTable tableName="m_log_category">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_log_categoryPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="diameter_1" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="diameter_2" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="harga_beli" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="harga_jual" type="DOUBLE"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+            <column name="mlogtype_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-12">
+        <createTable tableName="m_log_type">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_log_typePK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-13">
+        <createTable tableName="m_material">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_materialPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="harga" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="qty" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+            <column name="materialtype_id" type="BIGINT"/>
+            <column name="satuan_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-14">
+        <createTable tableName="m_material_type">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_material_typePK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-15">
+        <createTable tableName="m_message">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_messagePK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="message" type="VARCHAR(255)"/>
+            <column name="modified_on" type="TINYBLOB"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+            <column name="modifiedby_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-16">
+        <createTable tableName="m_operasional_type">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_operasional_typePK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-17">
+        <createTable tableName="m_pajak">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_pajakPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nominal" type="DOUBLE"/>
+            <column name="status" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-18">
+        <createTable tableName="m_paytype">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_paytypePK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-19">
+        <createTable tableName="m_plywood">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_plywoodPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="harga_beli" type="DOUBLE"/>
+            <column name="qty" type="DOUBLE"/>
+            <column name="qty_produksi" type="DOUBLE"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+            <column name="plywoodcategory_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-20">
+        <createTable tableName="m_plywood_category">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_plywood_categoryPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="harga_beli" type="DOUBLE"/>
+            <column name="harga_jual" type="DOUBLE"/>
+            <column name="lebar" type="DOUBLE"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="panjang" type="DOUBLE"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="tebal" type="DOUBLE"/>
+            <column name="createdby_id" type="BIGINT"/>
+            <column name="plywoodgrade_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-21">
+        <createTable tableName="m_plywood_grade">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_plywood_gradePK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-22">
+        <createTable tableName="m_satuan">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_satuanPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="VARCHAR(255)"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-23">
+        <createTable tableName="m_shift">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_shiftPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-24">
+        <createTable tableName="m_supplier">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_supplierPK"/>
+            </column>
+            <column name="alamat" type="LONGTEXT"/>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="mobilephone" type="VARCHAR(255)"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="telepon" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-25">
+        <createTable tableName="m_team">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_teamPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="jumlah" type="INT"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-26">
+        <createTable tableName="m_utang">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_utangPK"/>
+            </column>
+            <column name="duedate" type="TINYBLOB"/>
+            <column name="nominal" type="DOUBLE"/>
+            <column name="sisa" type="DOUBLE"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="tipe" type="VARCHAR(255)"/>
+            <column name="transaksi_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-27">
+        <createTable tableName="m_veneer">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_veneerPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="harga_beli" type="DOUBLE"/>
+            <column name="qty" type="DOUBLE"/>
+            <column name="qty_produksi" type="DOUBLE"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+            <column name="veneercategory_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-28">
+        <createTable tableName="m_veneer_category">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="m_veneer_categoryPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="harga_beli" type="DOUBLE"/>
+            <column name="harga_jual" type="DOUBLE"/>
+            <column name="lebar" type="DOUBLE"/>
+            <column name="nama" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="panjang" type="DOUBLE"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="subtype" type="VARCHAR(255)"/>
+            <column name="tebal" type="DOUBLE"/>
+            <column name="jhi_type" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-29">
+        <createTable tableName="t_bongkar">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="t_bongkarPK"/>
+            </column>
+            <column name="rate_upah" type="DOUBLE"/>
+            <column name="volume" type="DOUBLE"/>
+            <column name="transaksi_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-30">
+        <createTable tableName="t_kas">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="t_kasPK"/>
+            </column>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="nominal" type="DOUBLE"/>
+            <column name="objectid" type="BIGINT"/>
+            <column name="tipekas" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-31">
+        <createTable tableName="t_log">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="t_logPK"/>
+            </column>
+            <column name="harga_beli" type="DOUBLE"/>
+            <column name="harga_total" type="DOUBLE"/>
+            <column name="jhi_inout" type="VARCHAR(255)"/>
+            <column name="qty" type="DOUBLE"/>
+            <column name="volume" type="DOUBLE"/>
+            <column name="mlog_id" type="BIGINT"/>
+            <column name="transaksi_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-32">
+        <createTable tableName="t_material">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="t_materialPK"/>
+            </column>
+            <column name="harga_beli" type="DOUBLE"/>
+            <column name="harga_total" type="DOUBLE"/>
+            <column name="jhi_inout" type="VARCHAR(255)"/>
+            <column name="qty" type="DOUBLE"/>
+            <column name="mmaterial_id" type="BIGINT"/>
+            <column name="transaksi_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-33">
+        <createTable tableName="t_operasional">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="t_operasionalPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="nominal" type="DOUBLE"/>
+            <column name="tanggal" type="TINYBLOB"/>
+            <column name="createdby_id" type="BIGINT"/>
+            <column name="moperasionaltype_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-34">
+        <createTable tableName="t_plywood">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="t_plywoodPK"/>
+            </column>
+            <column name="harga_beli" type="DOUBLE"/>
+            <column name="harga_total" type="DOUBLE"/>
+            <column name="jhi_inout" type="VARCHAR(255)"/>
+            <column name="qty" type="DOUBLE"/>
+            <column name="volume" type="DOUBLE"/>
+            <column name="mplywood_id" type="BIGINT"/>
+            <column name="transaksi_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-35">
+        <createTable tableName="t_utang">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="t_utangPK"/>
+            </column>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="deskripsi" type="LONGTEXT"/>
+            <column name="nominal" type="DOUBLE"/>
+            <column name="mutang_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-36">
+        <createTable tableName="t_veneer">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="t_veneerPK"/>
+            </column>
+            <column name="harga_beli" type="DOUBLE"/>
+            <column name="harga_total" type="DOUBLE"/>
+            <column name="jhi_inout" type="VARCHAR(255)"/>
+            <column name="qty" type="DOUBLE"/>
+            <column name="volume" type="DOUBLE"/>
+            <column name="mveneer_id" type="BIGINT"/>
+            <column name="transaksi_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-37">
+        <createTable tableName="transaksi">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="transaksiPK"/>
+            </column>
+            <column name="category" type="VARCHAR(255)"/>
+            <column name="created_on" type="TINYBLOB"/>
+            <column name="invoicefile" type="LONGBLOB"/>
+            <column name="invoicefile_content_type" type="VARCHAR(255)"/>
+            <column name="invoiceno" type="VARCHAR(255)"/>
+            <column name="nopol" type="VARCHAR(255)"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="tanggal" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tipe" type="VARCHAR(255)"/>
+            <column name="createdby_id" type="BIGINT"/>
+            <column name="customer_id" type="BIGINT"/>
+            <column name="ekpedisi_id" type="BIGINT"/>
+            <column name="pajak_id" type="BIGINT"/>
+            <column name="paytype_id" type="BIGINT"/>
+            <column name="shift_id" type="BIGINT"/>
+            <column name="supplier_id" type="BIGINT"/>
+            <column name="team_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-38">
+        <addPrimaryKey columnNames="event_id, name" tableName="jhi_persistent_audit_evt_data"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-39">
+        <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-40">
+        <addPrimaryKey columnNames="name" constraintName="jhi_authorityPK" tableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-41">
+        <addUniqueConstraint columnNames="email" constraintName="UC_JHI_USEREMAIL_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-42">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-43">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_plywood" constraintName="FK18xsph8osxnvkcki0sekphssu" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-44">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-45">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m" deferrable="false" initiallyDeferred="false" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-46">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="transaksi" constraintName="FK2g7mpru6j96q5ln8h0v37xo0f" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_customer"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-47">
+        <addForeignKeyConstraint baseColumnNames="satuan_id" baseTableName="m_material" constraintName="FK2okm446k8jr12q303aesepfiw" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_satuan"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-48">
+        <addForeignKeyConstraint baseColumnNames="ekpedisi_id" baseTableName="transaksi" constraintName="FK3tgsqivcqnq2rfkruumu954xo" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_ekspedisi"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-49">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-50">
+        <addForeignKeyConstraint baseColumnNames="mutang_id" baseTableName="t_utang" constraintName="FK4we4ov6i4ulj11d8yhakgoqca" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_utang"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-51">
+        <addForeignKeyConstraint baseColumnNames="paytype_id" baseTableName="transaksi" constraintName="FK5smub5pum0w2yo4ye24eexie2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_paytype"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-52">
+        <addForeignKeyConstraint baseColumnNames="mlog_id" baseTableName="t_log" constraintName="FK652rauxo6dv2nrq758a8sm36f" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_log"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-53">
+        <addForeignKeyConstraint baseColumnNames="transaksi_id" baseTableName="m_utang" constraintName="FK7f9i8m0t72lpl49ik27cd6s9t" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="transaksi"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-54">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_veneer_category" constraintName="FK7fg86j3fpynjj5vfhmt19ku9c" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-55">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_message" constraintName="FK85223kr3h751ybvxsb27b76ft" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-56">
+        <addForeignKeyConstraint baseColumnNames="mplywood_id" baseTableName="t_plywood" constraintName="FK85db19bud4nqjseuy63hgsms4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_plywood"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-57">
+        <addForeignKeyConstraint baseColumnNames="transaksi_id" baseTableName="t_bongkar" constraintName="FK86i1vc58086216y240kkpyh1n" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="transaksi"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-58">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_veneer" constraintName="FK90awqmtvue3etuw7ebq2j8qjr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-59">
+        <addForeignKeyConstraint baseColumnNames="supplier_id" baseTableName="transaksi" constraintName="FKa35soartccm419ip8twu59fhd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_supplier"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-60">
+        <addForeignKeyConstraint baseColumnNames="mveneer_id" baseTableName="t_veneer" constraintName="FKagiwvcpfrfw9yra0gw1lt1a30" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_veneer"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-61">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_operasional_type" constraintName="FKai066pc8o9r8sb39mvt251kwb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-62">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_log" constraintName="FKax9p35mvg3pr3sdcu8q3s5ex7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-63">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_plywood_grade" constraintName="FKbl14jc6jrr7wjca6cn9mj9b7q" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-64">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_team" constraintName="FKc07ggj551uprxbp5q0nt0dbbu" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-65">
+        <addForeignKeyConstraint baseColumnNames="mlogtype_id" baseTableName="m_log_category" constraintName="FKdmphfrgn0v1n6ngnvxiw9llh5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_log_type"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-66">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_log_category" constraintName="FKejjebddp9ockdxnotix34d1r1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-67">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_ekspedisi" constraintName="FKfn5t4wclpl653umodfm9xaagk" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-68">
+        <addForeignKeyConstraint baseColumnNames="transaksi_id" baseTableName="t_log" constraintName="FKhv6vlpxxqmaua6wwn3mrpm2j6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="transaksi"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-69">
+        <addForeignKeyConstraint baseColumnNames="moperasionaltype_id" baseTableName="t_operasional" constraintName="FKi94u79qrypiecargejk7mjbjc" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_operasional_type"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-70">
+        <addForeignKeyConstraint baseColumnNames="modifiedby_id" baseTableName="m_message" constraintName="FKioifjyoxqxv40s1mybnsvk1se" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-71">
+        <addForeignKeyConstraint baseColumnNames="transaksi_id" baseTableName="t_material" constraintName="FKiq9y3nqip8fclej4401g02wrh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="transaksi"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-72">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_log_type" constraintName="FKkfmr8netnvrwvsvi6yq8vvrie" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-73">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="transaksi" constraintName="FKkmkconnnxaeq9lno71g0sofee" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-74">
+        <addForeignKeyConstraint baseColumnNames="mmaterial_id" baseTableName="t_material" constraintName="FKlakv19kull3qidl9ehrnsn1ij" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_material"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-75">
+        <addForeignKeyConstraint baseColumnNames="transaksi_id" baseTableName="t_plywood" constraintName="FKmgbdu6q4kkp4h7lrc0toe06ai" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="transaksi"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-76">
+        <addForeignKeyConstraint baseColumnNames="team_id" baseTableName="transaksi" constraintName="FKmkyx5rk9dr1w410konbfstmyf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_team"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-77">
+        <addForeignKeyConstraint baseColumnNames="shift_id" baseTableName="transaksi" constraintName="FKn0xhe3bkvddej1kje23rl7832" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_shift"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-78">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="t_operasional" constraintName="FKn1lde5ee89dn1vbrhqbi5txtd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-79">
+        <addForeignKeyConstraint baseColumnNames="plywoodcategory_id" baseTableName="m_plywood" constraintName="FKnggn5o3eixcbpqime3mqgcrfr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_plywood_category"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-80">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_material" constraintName="FKni436l2y1tlhuf9vb9ih7jh5j" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-81">
+        <addForeignKeyConstraint baseColumnNames="materialtype_id" baseTableName="m_material" constraintName="FKns9289q4kyixtegk309v3xy3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_material_type"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-82">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_material_type" constraintName="FKoaacbyifh3dddv2o35tknhbdi" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-83">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_supplier" constraintName="FKodp5hawlguxuwkptdbondeggl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-84">
+        <addForeignKeyConstraint baseColumnNames="mlogcat_id" baseTableName="m_log" constraintName="FKoi160wnubegticv317ka6vrs6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_log_category"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-85">
+        <addForeignKeyConstraint baseColumnNames="createdby_id" baseTableName="m_plywood_category" constraintName="FKpixr42w927latlj4r8rnn6p5t" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-86">
+        <addForeignKeyConstraint baseColumnNames="plywoodgrade_id" baseTableName="m_plywood_category" constraintName="FKpmk9a089tttvrjjj3brkhovro" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_plywood_grade"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-87">
+        <addForeignKeyConstraint baseColumnNames="veneercategory_id" baseTableName="m_veneer" constraintName="FKrbvi5jj8t2f4bv7eknhrba46g" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_veneer_category"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-88">
+        <addForeignKeyConstraint baseColumnNames="pajak_id" baseTableName="transaksi" constraintName="FKs4i7gb1tuallmdb8rnytb5nl5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="m_pajak"/>
+    </changeSet>
+    <changeSet author="sumar (generated)" id="1550310565237-89">
+        <addForeignKeyConstraint baseColumnNames="transaksi_id" baseTableName="t_veneer" constraintName="FKs5f7jwi3d1p2wxth4wyqnji2u" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="transaksi"/>
+    </changeSet>
+</databaseChangeLog>

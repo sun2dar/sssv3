@@ -98,6 +98,12 @@ public class TransaksiServiceImpl implements TransaksiService {
         return transaksiRepository.findByInvoicenoOrSuppliername(invoicenoOrSupplierNama, pageable);
     }
 
+    @Override
+    public Page<Transaksi> findByTipeAndCategory(String tipe, String category, Pageable pageable){
+        log.debug("Request to get Transaksis search by tipe and category");
+        return transaksiRepository.findByTipeAndCategory(tipe, category, pageable);
+    }
+
     /**
      * Get all the transaksis.
      *
